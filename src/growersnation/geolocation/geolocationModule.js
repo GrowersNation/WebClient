@@ -1,8 +1,11 @@
 define(
 	["dijit/form/Button",
 	"dojo/dom",
+	"dojo/topic",
 	"dojo/domReady!"],
-	function(Button, dom){
+	function(Button, dom, topic){
+		
+		var lat, lng;
 		
 		var locationContent = dom.byId("locationContent");
 		var checkLocationContent = dom.byId("locationCheck");
@@ -32,8 +35,9 @@ define(
 		}
 		
 		function showPositionOnMap(position){
-			var latlon=position.coords.latitude+","+position.coords.longitude;
-			var img_url="http://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false";
+			lat = position.coords.latitude;
+			lng = position.coords.longitude;
+			var img_url="http://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lng+"&zoom=14&size=400x300&sensor=false";
 			locationContent.innerHTML = "<img src='"+img_url+"'>";
 			checkLocationContent.style.visibility = "visible";
 			createCheckLocationButton();
@@ -52,7 +56,7 @@ define(
 		}
 		
 		function nextSection(event){
-			
+			topic.publish("growersnation/get/categories", lat, lng);
 		}
 		
 		return {

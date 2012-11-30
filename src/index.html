@@ -69,7 +69,10 @@
 		</div>
 		
 		<div id="rightPanel" class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'right', splitter: true">
-			Sidebar content
+		
+			<div id="category-content"></div>
+			
+		
 		</div>
 		
 	</div>
@@ -83,6 +86,7 @@
 		 */
 		require(
 			["gn/geolocation/geolocationModule",
+			"gn/categories/categoriesModule",
 			"dojo/parser",
 			"dijit/layout/BorderContainer",
 			"dijit/layout/TabContainer",
@@ -96,7 +100,7 @@
 			 * @param geolocationModule
 			 * @param dojo parser 
 			 */
-			function(geolocate, parser){
+			function(geolocate, categories, parser){
 				parser.parse();
 				geolocate.create("Find me!", geolocateButton);
 			}
