@@ -42,6 +42,9 @@ define(
 		function createCheckLocationButton(){
 			yesButton.style.visibility = "visible";
 			noButton.style.visibility = "visible";
+			
+			var locationConsentContent = dojo.byId("locationConsentContent");
+			locationConsentContent.style.display = "none";
 		}
 		
 		function useGears(event){
