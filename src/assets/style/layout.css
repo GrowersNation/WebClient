@@ -91,3 +91,49 @@ html, body {
 	line-height: 50px;
 	height: 50px;
 }
+
+/* Growing Info styles */
+
+.month-header-container {
+	width: 100%;
+	float: left;
+	margin-top: 3px;
+}
+
+.month {
+	width: 40px;
+	float: left;
+	text-align: center;
+	margin-right: 3px;
+	height: 19px;
+}
+
+.month-header {
+	border: solid 1px #ccc;
+	background-color: #eee;
+}
+
+.month-nothing {
+	width: 42px;
+}
+	
+.month-sow {
+	width: 42px;
+	height: 21px;
+	background-color: blue;
+}
+.month-plant {
+	width: 42px;
+	height: 21px;
+	background-color: green;
+}
+.month-grow {
+	width: 40px;
+	background-color: #fff;
+	border: solid 1px #ccc;
+}
+.month-harvest {
+	width: 42px;
+	height: 21px;
+	background-color: red;
+}
