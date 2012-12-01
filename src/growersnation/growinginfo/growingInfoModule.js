@@ -3,7 +3,7 @@ define(
 	"dijit/registry",
 	"dojo/topic",
 	"dojo/on",
-	"src/utils/GlobalTopics",
+	"utils/GlobalTopics",
 	"dojo/domReady!"],
 	function(dom, registry, topic, on, GlobalTopics){
 		var handle = topic.subscribe(GlobalTopics().SHOW_GROWING_INFO_FOR_PRODUCE, getGrowingInfo);
