@@ -28,7 +28,7 @@ html, body {
 }
 
 #header-panel {
-	background-image: url('/GrowersNation/Assets/images/logo/growers-nation.jpg');
+	background-image: url('../images/logo/growers-nation.jpg');
 	background-repeat: no-repeat;
 	background-position: 5px 10px;
 	height: 105px;
