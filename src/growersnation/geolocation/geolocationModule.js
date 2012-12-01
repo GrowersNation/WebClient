@@ -4,8 +4,8 @@ define(
 	"dijit/registry",
 	"dojo/topic",
 	"dojo/on",
-	"src/utils/CategoryTopics",
-	"src/utils/GlobalTopics",
+	"utils/CategoryTopics",
+	"utils/GlobalTopics",
 	"dojo/domReady!"],
 	function(Button, dom, registry, topic, on, CategoryTopics, GlobalTopics){
 		

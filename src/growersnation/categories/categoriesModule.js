@@ -2,9 +2,9 @@ define(
 	["dojo/dom",
 	"dojo/topic",
 	"dojo/on",
-	"src/utils/CategoryTopics",
-	"src/utils/GlobalTopics",
-	"src/growersnation/categories/model/CategoriesModel",
+	"utils/CategoryTopics",
+	"utils/GlobalTopics",
+	"growersnation/categories/model/CategoriesModel",
 	"dojo/domReady!"],
 	function(dom, topic, on, CategoryTopics, GlobalTopics, CategoriesModel){
 		var handle = topic.subscribe(CategoryTopics().GET_CATEGORIES, getCategories);
