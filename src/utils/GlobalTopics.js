@@ -16,8 +16,9 @@ define([
 			//		but that seems unnecessary as the sole purpose of this class is to define the constants. 
 			
 			RESET_APP: "growersnation/reset/app",
-			SHOW_GROWING_INFO_FOR_PRODUCE: "growersnation/show/produce"
-				
+			SHOW_GROWING_INFO_FOR_PRODUCE: "growersnation/show/produce",
+			REMOVE_LISTENERS: "growersnation/remove/listeners"
+			
 		});
 		
 

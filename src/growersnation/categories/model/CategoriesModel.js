@@ -29,10 +29,11 @@ define([
 				this.Categories = new ObjectStore({
 					objectStore: new Memory({ 
 						data: [
-							{ id: "1", label: "Fruits", img: "http://www.gyoveg.com/images/organic50x50.jpg" },
-							{ id: "2", label: "Vegetables", img: "http://www.gyoveg.com/images/organic50x50.jpg" },
-							{ id: "3", label: "Grains", img: "http://www.gyoveg.com/images/organic50x50.jpg" },
-							{ id: "4", label: "Other", img: "http://www.gyoveg.com/images/organic50x50.jpg" }
+							{ id: "1", label: "Fruits", img: "assets/images/produce/fruit.jpg" },
+							{ id: "2", label: "Vegetables", img: "assets/images/produce/veg.jpg" },
+							{ id: "3", label: "Grains", img: "assets/images/produce/grains.jpg" },
+							{ id: "4", label: "Herbs", img: "assets/images/produce/herbs.jpg" },
+							{ id: "5", label: "Other", img: "assets/images/produce/nuts.jpg" }
 						]
 					})		
 				});

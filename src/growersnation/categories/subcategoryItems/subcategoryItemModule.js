@@ -8,9 +8,11 @@ define(
 	"dojo/domReady!"],
 	function(dom, topic, on, CategoryTopics, GlobalTopics, SubCategoryItemModel){
 		var handle = topic.subscribe(CategoryTopics().GET_SUB_CATEGORY_ITEMS, getSubCategoryItems);
+		var handle = topic.subscribe(GlobalTopics().REMOVE_LISTENERS, removeListeners);
 		
 		var categoryContent = dom.byId("category-content");
-				
+		var clickListener;
+		
 		function getSubCategoryItems(subCategoryId) {
 
 			// Instantiate the SubCategory Model:
@@ -40,23 +42,26 @@ define(
 			dojo.html.set(categoryContent, categoryTitle+"<div id='categories'>"+content+"</div>");
 			
 			//Add events etc to allow clickable to go to sub-categories
-			on.once(document, ".category-item:click", categoryClicked);
-			showResetOption();
+			clickListener = on(document, ".category-item:click", categoryClicked);
 		}
 
-		function showResetOption(){
-			dom.byId("reset-app").style.display = "block";
+		function removeListeners(){
+			clickListener.remove();
 		}
 		
 		function categoryClicked(event){
-			var categoryId;
+			
+			var produceId;
+			var produceImage;
 			for (var children = 0; children < this.childNodes.length; children++) {
 				if (this.childNodes[children].attributes[0].value == "category-title") {
-					categoryId = this.childNodes[children].textContent;
-					break;
+					produceId = this.childNodes[children].textContent;
+				}
+				if (this.childNodes[children].attributes[0].value == "category-image") {
+					produceImage = this.childNodes[children].childNodes[0].src;
 				}
 			}
-			topic.publish(GlobalTopics().SHOW_GROWING_INFO_FOR_PRODUCE, categoryId);
+			topic.publish(GlobalTopics().SHOW_GROWING_INFO_FOR_PRODUCE, produceId, produceImage);
 		}
 	}
 )

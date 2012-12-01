@@ -9,7 +9,8 @@ define(
 		var handle = topic.subscribe(CategoryTopics().GET_SUB_CATEGORIES, getSubCategories);
 		
 		var categoryContent = dom.byId("category-content");
-				
+		var clickListener;
+		
 		function getSubCategories(categoryId) {
 
 			// Instantiate the SubCategory Model:
@@ -20,6 +21,8 @@ define(
 			var subCategories;
 			if (categoryId == "Vegetables") {
 				subCategories = subCategoriesModel.SubCategoriesVeg.objectStore.data;
+			} else if (categoryId == "Grains") {
+				subCategories = subCategoriesModel.SubCategoriesGrains.objectStore.data;
 			} else {
 				subCategories = subCategoriesModel.SubCategoriesFruit.objectStore.data;
 			}
@@ -46,7 +49,7 @@ define(
 			dojo.html.set(categoryContent, categoryTitle+"<div id='categories'>"+content+"</div>");
 			
 			//Add events etc to allow clickable to go to sub-categories
-			on.once(document, ".category-item:click", subCategoryClicked);
+			clickListener = on.once(document, ".category-item:click", subCategoryClicked);
 			showResetOption();
 		}
 
@@ -55,6 +58,9 @@ define(
 		}
 		
 		function subCategoryClicked(event){
+			
+			clickListener.remove();
+			
 			var categoryId;
 			for (var children = 0; children < this.childNodes.length; children++) {
 				if (this.childNodes[children].attributes[0].value == "category-title") {

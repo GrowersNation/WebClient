@@ -5,8 +5,9 @@ define(
 	"dojo/topic",
 	"dojo/on",
 	"src/utils/CategoryTopics",
+	"src/utils/GlobalTopics",
 	"dojo/domReady!"],
-	function(Button, dom, registry, topic, on, CategoryTopics){
+	function(Button, dom, registry, topic, on, CategoryTopics, GlobalTopics){
 		
 		var lat, lng;
 		
@@ -53,6 +54,8 @@ define(
 		}
 
 		function resetApp(){
+			topic.publish(GlobalTopics().REMOVE_LISTENERS);
+			
 			//Make sure we're looking at the map view
 			var mapTab = registry.byId("mapView");
 			var tabs = registry.byId("growersTabs");

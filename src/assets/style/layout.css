@@ -86,6 +86,11 @@ html, body {
 	padding: 5px;	
 }
 
+.category-image img {
+	width: 70px;
+	height: 70px;	
+}
+
 .category-title {
 	padding: 5px;
 	line-height: 50px;
@@ -101,39 +106,68 @@ html, body {
 }
 
 .month {
-	width: 40px;
+	width: 8.2%;
 	float: left;
 	text-align: center;
-	margin-right: 3px;
 	height: 19px;
 }
 
 .month-header {
-	border: solid 1px #ccc;
+	border-right: solid 1px #ccc;
 	background-color: #eee;
+}
+
+.growing-info {
+	float: left;
+    padding-bottom: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.growing-info h3 {
+	line-height: 50px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.growing-info img {
+	float: left;
+	width: 90px;
+	height: 90px;
+	padding-right: 10px;
+}
+
+.growing-bar {
+	width:100%;
+	float:left;
+	height: 10px;
+}
+
+.growing-section {
+	float:left;
+	height: 10px;
 }
 
 .month-nothing {
 	width: 42px;
 }
-	
-.month-sow {
-	width: 42px;
-	height: 21px;
-	background-color: blue;
+
+.growing-produce {
+	margin-top: 5px;
+	float:left;
+	width: 100%;
 }
-.month-plant {
-	width: 42px;
-	height: 21px;
-	background-color: green;
+
+.sow {
+	background-color: #996600;
 }
-.month-grow {
-	width: 40px;
+.plant {
+	background-color: #D8B25C;
+}
+.grow {
 	background-color: #fff;
 	border: solid 1px #ccc;
 }
-.month-harvest {
-	width: 42px;
-	height: 21px;
-	background-color: red;
+.harvest {
+	background-color: #6DAD48;
 }
