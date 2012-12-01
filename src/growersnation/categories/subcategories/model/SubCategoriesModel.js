@@ -3,10 +3,9 @@ define([
 	"dojo/_base/lang",
 	"dojo/store/Memory",
 	"dojo/data/ObjectStore",
-    "dojo/topic",
-	"meto/utils/Topics",
+    "dojo/topic"
 ],
-    function(declare, lang, Memory, ObjectStore, topic, Topics){
+    function(declare, lang, Memory, ObjectStore, topic){
 
 		// module: 
 		// 		growersnation/categories/subcategories/model/SubCategoriesModel
@@ -17,7 +16,8 @@ define([
 
 			// subCategories: ObjectStore
 			//		Stores the object containing the site information used by the Select list
-        	subCategories: null,
+        	SubCategoriesFruit: null,
+        	SubCategoriesVeg: null,
 
 			constructor: function() {
 				// summary:
@@ -27,13 +27,23 @@ define([
 
                 // TODO: Get this data from a data feed containing all the site config info
 
-				this.subCategories = new ObjectStore({
+				this.SubCategoriesFruit = new ObjectStore({
 					objectStore: new Memory({ 
 						data: [
 							{ id: "1", label: "Berries", img: "http://www.gyoveg.com/images/organic50x50.jpg" },
 							{ id: "2", label: "Stoned fruit", img: "http://www.gyoveg.com/images/organic50x50.jpg" },
 							{ id: "3", label: "Apples", img: "http://www.gyoveg.com/images/organic50x50.jpg" },
 							{ id: "4", label: "Citrus", img: "http://www.gyoveg.com/images/organic50x50.jpg" }
+						]
+					})		
+				});
+				
+				this.SubCategoriesVeg = new ObjectStore({
+					objectStore: new Memory({ 
+						data: [
+							{ id: "1", label: "Root Veg", img: "http://www.gyoveg.com/images/organic50x50.jpg" },
+							{ id: "2", label: "Salad Greens", img: "http://www.gyoveg.com/images/organic50x50.jpg" },
+							{ id: "3", label: "Stalk Veg", img: "http://www.gyoveg.com/images/organic50x50.jpg" }
 						]
 					})		
 				});
@@ -50,7 +60,7 @@ define([
 				// tags:
 				//		public
 				
-				return this.subCategories; /* ObjectStore */
+				return this.SubCategories; /* ObjectStore */
 				
 			}
 

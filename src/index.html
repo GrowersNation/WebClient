@@ -66,7 +66,8 @@
 		</div>
 		
 		<div id="rightPanel" class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'right', splitter: true">
-		
+			
+			<div id="reset-app">Start over again</div>
 			<div id="category-content"></div>
 			
 		
@@ -84,6 +85,7 @@
 		require(
 			["gn/geolocation/geolocationModule",
 			"gn/categories/categoriesModule",
+			"gn/categories/subcategories/subcategoriesModule",
 			"dojo/parser",
 			"dijit/layout/BorderContainer",
 			"dijit/layout/TabContainer",
@@ -97,7 +99,7 @@
 			 * @param geolocationModule
 			 * @param dojo parser 
 			 */
-			function(geolocate, categories, parser){
+			function(geolocate, categories, subcategories, parser){
 				parser.parse();
 				geolocate.startup();
 			}

@@ -2,9 +2,10 @@ define(
 	["dijit/form/Button",
 	"dojo/dom",
 	"dojo/topic",
+	"dojo/on",
 	"src/utils/CategoryTopics",
 	"dojo/domReady!"],
-	function(Button, dom, topic, CategoryTopics){
+	function(Button, dom, topic, on, CategoryTopics){
 		
 		var lat, lng;
 		
@@ -15,7 +16,7 @@ define(
 				{label: "yes",
 				title: "go and choose some produce",
 				checked: false,
-				onClick: nextSection},
+				onClick: getCategoriesForLocation},
 				"yes"
 			);
 			yesButton.style.visibility = "hidden";
@@ -38,6 +39,7 @@ define(
 			locationContent.innerHTML = "<img src='"+img_url+"'>";
 			checkLocationContent.style.visibility = "visible";
 			createCheckLocationButton();
+			getCategoriesForLocation();
 		}
 		
 		function createCheckLocationButton(){
@@ -48,14 +50,15 @@ define(
 		function useGears(event){
 			locationContent.innerHTML = "";
 		}
-		
-		function nextSection(event){
+
+		function getCategoriesForLocation(){
 			topic.publish(CategoryTopics().GET_CATEGORIES, lat, lng);
 		}
 		
 		return {
 			startup: function(){
 				navigator.geolocation.getCurrentPosition(showPositionOnMap);
+				on(document, "#reset-app:click", getCategoriesForLocation);
 			}	
 		}
 	}

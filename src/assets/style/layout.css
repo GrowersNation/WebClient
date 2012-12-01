@@ -27,6 +27,8 @@ html, body {
 
 /* Category styles */
 
+.category-id { display:none; }
+
 .category-item {
 	float: left;
 	width: 100%;
