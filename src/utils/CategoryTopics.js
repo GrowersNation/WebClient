@@ -16,7 +16,8 @@ define([
 			//		but that seems unnecessary as the sole purpose of this class is to define the constants. 
 			
 			GET_CATEGORIES: "growersnation/get/categories",
-			GET_SUB_CATEGORIES: "growersnation/get/subcategories"
+			GET_SUB_CATEGORIES: "growersnation/get/subcategories",
+			GET_SUB_CATEGORY_ITEMS: "growersnation/get/subcategory/items"
 		
 		});
 		

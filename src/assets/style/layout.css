@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     overflow: hidden;
     padding: 0;
+    font-family: calibri, verdana, tahoma, arial;
 }
  
 #appLayout {
@@ -12,10 +13,26 @@ html, body {
     width: 24em;
 }
  
-.claro .demoLayout .edgePanel {
-    background-color: #d0e9fc;
+.claro {
+    background-color: #BBFFBB;
 }
- 
+
+#header-panel {
+	background-image: url('/GrowersNation/Assets/images/logo/growers-nation.jpg');
+	background-repeat: no-repeat;
+	background-position: 5px 10px;
+	height: 105px;
+}
+
+#header-panel h3 {
+	position: absolute;
+	bottom: -6px;
+	right: 10px;
+	color: #008000;
+	font-weight: normal;
+	font-style: italic;
+}
+
 #viewsChart {
     width: 550px;
     height: 550px;
@@ -25,13 +42,30 @@ html, body {
 	visibility: hidden;
 }
 
+#reset-app {
+	cursor: pointer;
+	font-style: italic;
+	color: #41B7D8;
+}
+
 /* Category styles */
+
+#categories {
+	float:left;
+}
 
 .category-id { display:none; }
 
 .category-item {
 	float: left;
 	width: 100%;
+	cursor: pointer;
+}
+.category-item:nth-child(odd) {
+     background: #efefef;
+}
+.category-item:hover {
+	background-color: #BBFFBB;
 }
 
 .category-image, .category-title {

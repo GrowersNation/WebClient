@@ -52,8 +52,8 @@
 	
 	<div id="appLayout" class="demoLayout" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design: 'headline'">
 		
-		<div class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
-			<h1>Growers' Nation</h1>
+		<div id="header-panel" class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
+			<h3>Planting the seeds locally for a more sustainable future</h3>
 		</div>
 		
 		<div class="centerPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center', tabPosition: 'bottom'">
@@ -67,7 +67,7 @@
 		
 		<div id="rightPanel" class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'right', splitter: true">
 			
-			<div id="reset-app">Start over again</div>
+			<div id="reset-app" style="display:none;"><< Start over again</div>
 			<div id="category-content"></div>
 			
 		
@@ -86,6 +86,7 @@
 			["gn/geolocation/geolocationModule",
 			"gn/categories/categoriesModule",
 			"gn/categories/subcategories/subcategoriesModule",
+			"gn/categories/subcategoryItems/subcategoryItemModule",
 			"dojo/parser",
 			"dijit/layout/BorderContainer",
 			"dijit/layout/TabContainer",
@@ -99,7 +100,7 @@
 			 * @param geolocationModule
 			 * @param dojo parser 
 			 */
-			function(geolocate, categories, subcategories, parser){
+			function(geolocate, categories, subcategories, subcategoryItems, parser){
 				parser.parse();
 				geolocate.startup();
 			}

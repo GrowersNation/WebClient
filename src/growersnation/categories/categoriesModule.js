@@ -36,7 +36,7 @@ define(
 			dojo.html.set(categoryContent, categoryTitle+"<div id='categories'>"+content+"</div>");
 			
 			//Add events etc to allow clickable to go to sub-categories
-			on(document, ".category-item:click", categoryClicked);
+			on.once(document, ".category-item:click", categoryClicked);
 			
 			hideResetOption();
 		}

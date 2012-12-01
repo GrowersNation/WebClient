@@ -46,7 +46,7 @@ define(
 			dojo.html.set(categoryContent, categoryTitle+"<div id='categories'>"+content+"</div>");
 			
 			//Add events etc to allow clickable to go to sub-categories
-			on(document, ".category-item:click", categoryClicked);
+			on.once(document, ".category-item:click", subCategoryClicked);
 			showResetOption();
 		}
 
@@ -54,15 +54,15 @@ define(
 			dom.byId("reset-app").style.display = "block";
 		}
 		
-		function categoryClicked(event){
+		function subCategoryClicked(event){
 			var categoryId;
 			for (var children = 0; children < this.childNodes.length; children++) {
-				if (this.childNodes[children].attributes[0].value == "category-id") {
+				if (this.childNodes[children].attributes[0].value == "category-title") {
 					categoryId = this.childNodes[children].textContent;
 					break;
 				}
 			}
-			topic.publish(CategoryTopics().GET_SUB_CATEGORIES, categoryId);
+			topic.publish(CategoryTopics().GET_SUB_CATEGORY_ITEMS, categoryId);
 		}
 	}
 )
