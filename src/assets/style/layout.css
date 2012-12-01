@@ -17,6 +17,16 @@ html, body {
     background-color: #BBFFBB;
 }
 
+.claro .dijitTabContainerTabListNested .dijitTabChecked, .claro .dijitTabContainerTabListNested .dijitTabHover {
+	background-color: #BBFFBB;
+	border-color: #BBFFBB;
+}
+
+.claro .dijitTabContainerTabListNested .dijitTabChecked {
+	background-color: #BBFFBB;
+	border-color: #008000;
+}
+
 #header-panel {
 	background-image: url('/GrowersNation/Assets/images/logo/growers-nation.jpg');
 	background-repeat: no-repeat;

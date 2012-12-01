@@ -15,8 +15,9 @@ define([
 			// 		NB. According to the Dojo style guide, these should really be defined within an object, 
 			//		but that seems unnecessary as the sole purpose of this class is to define the constants. 
 			
-			RESET_APP: "growersnation/reset/app"
-		
+			RESET_APP: "growersnation/reset/app",
+			SHOW_GROWING_INFO_FOR_PRODUCE: "growersnation/show/produce"
+				
 		});
 		
 

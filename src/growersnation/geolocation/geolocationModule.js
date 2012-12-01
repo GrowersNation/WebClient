@@ -1,11 +1,12 @@
 define(
 	["dijit/form/Button",
 	"dojo/dom",
+	"dijit/registry",
 	"dojo/topic",
 	"dojo/on",
 	"src/utils/CategoryTopics",
 	"dojo/domReady!"],
-	function(Button, dom, topic, on, CategoryTopics){
+	function(Button, dom, registry, topic, on, CategoryTopics){
 		
 		var lat, lng;
 		
@@ -51,6 +52,14 @@ define(
 			locationContent.innerHTML = "";
 		}
 
+		function resetApp(){
+			//Make sure we're looking at the map view
+			var mapTab = registry.byId("mapView");
+			var tabs = registry.byId("growersTabs");
+			tabs.selectChild(mapTab);
+			
+			getCategoriesForLocation();
+		}
 		function getCategoriesForLocation(){
 			topic.publish(CategoryTopics().GET_CATEGORIES, lat, lng);
 		}
@@ -58,7 +67,7 @@ define(
 		return {
 			startup: function(){
 				navigator.geolocation.getCurrentPosition(showPositionOnMap);
-				on(document, "#reset-app:click", getCategoriesForLocation);
+				on(document, "#reset-app:click", resetApp);
 			}	
 		}
 	}

@@ -3,9 +3,10 @@ define(
 	"dojo/topic",
 	"dojo/on",
 	"src/utils/CategoryTopics",
+	"src/utils/GlobalTopics",
 	"src/growersnation/categories/subcategoryItems/model/SubCategoryItemModel",
 	"dojo/domReady!"],
-	function(dom, topic, on, CategoryTopics, SubCategoryItemModel){
+	function(dom, topic, on, CategoryTopics, GlobalTopics, SubCategoryItemModel){
 		var handle = topic.subscribe(CategoryTopics().GET_SUB_CATEGORY_ITEMS, getSubCategoryItems);
 		
 		var categoryContent = dom.byId("category-content");
@@ -39,7 +40,7 @@ define(
 			dojo.html.set(categoryContent, categoryTitle+"<div id='categories'>"+content+"</div>");
 			
 			//Add events etc to allow clickable to go to sub-categories
-			on(document, ".category-item:click", categoryClicked);
+			on.once(document, ".category-item:click", categoryClicked);
 			showResetOption();
 		}
 
@@ -50,12 +51,12 @@ define(
 		function categoryClicked(event){
 			var categoryId;
 			for (var children = 0; children < this.childNodes.length; children++) {
-				if (this.childNodes[children].attributes[0].value == "category-id") {
+				if (this.childNodes[children].attributes[0].value == "category-title") {
 					categoryId = this.childNodes[children].textContent;
 					break;
 				}
 			}
-			//topic.publish(CategoryTopics().GET_SUB_CATEGORIES, categoryId);
+			topic.publish(GlobalTopics().SHOW_GROWING_INFO_FOR_PRODUCE, categoryId);
 		}
 	}
 )
