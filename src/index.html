@@ -33,7 +33,7 @@
 				//dojo specific packages
 				{name: "dojo", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo", main: "dojo.js.uncompressed.js"}, //dojo.js.uncompressed.js for dev, use dojo.js for release
 				{name: "dijit", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dijit"},
-				{name: "dojox", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojox"},
+				{name: "dojox", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojox", main: "dojo.js"},
 				
 				//other third party libs here, remember to 'require' any of these to use them
 				{name: "jquery", location: "http://code.jquery.com", main: "jquery-1.8.3"},
@@ -57,9 +57,6 @@
 		</div>
 		
 		<div class="centerPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center', tabPosition: 'bottom'">
-			<div id="locationConsentContent" data-dojo-type="dijit/layout/ContentPane">
-				<button id="geolocateButton"></button>
-			</div>
 			<div id="locationContent" data-dojo-type="dijit/layout/ContentPane"></div>
 			<div id="locationCheck" data-dojo-type="dijit/layout/ContentPane">
 				Have we got your location correct?
@@ -102,7 +99,7 @@
 			 */
 			function(geolocate, categories, parser){
 				parser.parse();
-				geolocate.create("Find me!", geolocateButton);
+				geolocate.startup();
 			}
 		);
 	</script> 

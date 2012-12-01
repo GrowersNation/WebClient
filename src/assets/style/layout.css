@@ -24,3 +24,24 @@ html, body {
 #locationCheck{
 	visibility: hidden;
 }
+
+/* Category styles */
+
+.category-item {
+	float: left;
+	width: 100%;
+}
+
+.category-image, .category-title {
+	float: left;
+}
+
+.category-image {
+	padding: 5px;	
+}
+
+.category-title {
+	padding: 5px;
+	line-height: 50px;
+	height: 50px;
+}

@@ -2,8 +2,9 @@ define(
 	["dijit/form/Button",
 	"dojo/dom",
 	"dojo/topic",
+	"src/utils/CategoryTopics",
 	"dojo/domReady!"],
-	function(Button, dom, topic){
+	function(Button, dom, topic, CategoryTopics){
 		
 		var lat, lng;
 		
@@ -30,10 +31,6 @@ define(
 			noButton.style.visibility = "hidden";
 			noButton.startup();
 		
-		function geolocate(event){
-			navigator.geolocation.getCurrentPosition(showPositionOnMap);
-		}
-		
 		function showPositionOnMap(position){
 			lat = position.coords.latitude;
 			lng = position.coords.longitude;
@@ -46,9 +43,6 @@ define(
 		function createCheckLocationButton(){
 			yesButton.style.visibility = "visible";
 			noButton.style.visibility = "visible";
-			
-			var locationConsentContent = dojo.byId("locationConsentContent");
-			locationConsentContent.style.display = "none";
 		}
 		
 		function useGears(event){
@@ -56,18 +50,12 @@ define(
 		}
 		
 		function nextSection(event){
-			topic.publish("growersnation/get/categories", lat, lng);
+			topic.publish(CategoryTopics().GET_CATEGORIES, lat, lng);
 		}
 		
 		return {
-			create: function(label, nodeId, handler){
-				var btn = new Button(
-					{label: label,
-					checked: false,
-					onClick: geolocate},
-					nodeId
-				);
-				btn.startup();
+			startup: function(){
+				navigator.geolocation.getCurrentPosition(showPositionOnMap);
 			}	
 		}
 	}
