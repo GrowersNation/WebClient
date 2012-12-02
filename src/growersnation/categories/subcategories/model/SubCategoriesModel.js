@@ -45,7 +45,7 @@ define([
 						data: [
 							{ id: "1", label: "Root Veg", img: "assets/images/produce/root.jpg" },
 							{ id: "2", label: "Salad Greens", img: "assets/images/produce/leaf.jpg" },
-							{ id: "3", label: "Stalk Veg", img: "assets/images/produce/stalk.jpg" },
+							{ id: "3", label: "Bulb Veg", img: "assets/images/produce/stalk.jpg" },
 							{ id: "4", label: "Legumes", img: "assets/images/produce/legumes.jpg" }
 						]
 					})		

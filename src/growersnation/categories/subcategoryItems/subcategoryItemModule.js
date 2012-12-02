@@ -39,7 +39,7 @@ define(
 				subCategoryItems = subCategoryItemModel.SubCategoryMelons.objectStore.data;
 			} else if (subCategoryId == "Pitted") {
 				subCategoryItems = subCategoryItemModel.SubCategoryPitted.objectStore.data;
-			} else if (subCategoryId == "Bulb") {
+			} else if (subCategoryId == "Bulb Veg") {
 				subCategoryItems = subCategoryItemModel.SubCategoryBulb.objectStore.data;
 			} else if (subCategoryId == "Salad Greens") {
 				subCategoryItems = subCategoryItemModel.SubCategoryLeaf.objectStore.data;
