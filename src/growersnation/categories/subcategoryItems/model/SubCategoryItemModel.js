@@ -39,18 +39,18 @@ define([
 				this.SubCategoryBerries = new ObjectStore({
 					objectStore: new Memory({ 
 						data: [
-							{ id: "1", label: "Bilberries", img: "images/bilberry.jpg" },
-							{ id: "2", label: "Blackberries", img: "images/blackberry.jpg" },
-							{ id: "3", label: "Blueberries", img: "images/blueberry.jpg" },
-							{ id: "4", label: "Boysenberries", img: "images/boysenberry.jpg" },						
-							{ id: "5", label: "Cranberries", img: "images/cranberries.jpg" },
-							{ id: "6", label: "Currants", img: "images/currants.jpg" },
-							{ id: "7", label: "Gooseberries", img: "images/gooseberries.jpg" },												
-							{ id: "8", label: "Grapes", img: "images/grapes.jpg" },
-							{ id: "9", label: "Huckleberries", img: "images/huckleberries.jpg" },
-							{ id: "10", label: "Raspberries", img: "images/raspberries.jpg" },
-							{ id: "11", label: "Red berries", img: "images/redberries.jpg" },
-							{ id: "12", label: "Strawberries", img: "images/strawberries.jpg" }
+							{ id: "1", label: "Bilberries", img: "assets/images/produce/items/bilberry.jpg" },
+							{ id: "2", label: "Blackberries", img: "assets/images/produce/items/blackberry.jpg" },
+							{ id: "3", label: "Blueberries", img: "assets/images/produce/items/blueberry.jpg" },
+							{ id: "4", label: "Boysenberries", img: "assets/images/produce/items/boysenberry.jpg" },						
+							{ id: "5", label: "Cranberries", img: "assets/images/produce/items/cranberries.jpg" },
+							{ id: "6", label: "Currants", img: "assets/images/produce/items/currants.jpg" },
+							{ id: "7", label: "Gooseberries", img: "assets/images/produce/items/gooseberries.jpg" },												
+							{ id: "8", label: "Grapes", img: "assets/images/produce/items/grapes.jpg" },
+							{ id: "9", label: "Huckleberries", img: "assets/images/produce/items/huckleberries.jpg" },
+							{ id: "10", label: "Raspberries", img: "assets/images/produce/items/raspberries.jpg" },
+							{ id: "11", label: "Red berries", img: "assets/images/produce/items/redberries.jpg" },
+							{ id: "12", label: "Strawberries", img: "assets/images/produce/items/strawberries.jpg" }
 						]
 					})		
 				});
@@ -58,19 +58,19 @@ define([
 				this.SubCategoryCitrus = new ObjectStore({
 					objectStore: new Memory({ 
 						data: [
-							{ id: "1", label: "Clementines", img: "images/clementines.jpg" },
-							{ id: "2", label: "Grapefruit", img: "images/grapefruit.jpg" },
-							{ id: "3", label: "Kumquat", img: "images/kumquat.jpg" },
-							{ id: "4", label: "Lemon", img: "images/lemon.jpg" },						
-							{ id: "5", label: "Lime", img: "images/lime.jpg" },
-							{ id: "6", label: "Mandarin", img: "images/mandarin.jpg" },
-							{ id: "7", label: "Minneola", img: "images/minneola.jpg" },
-							{ id: "8", label: "Orange", img: "images/orange.jpg" },												
-							{ id: "9", label: "Pummelo", img: "images/pummelo.jpg" },
-							{ id: "10", label: "Satsuma", img: "images/satsuma.jpg" },
-							{ id: "11", label: "Tangerine", img: "images/tangerine.jpg" },
-							{ id: "12", label: "Tangelo", img: "images/tangelo.jpg" },
-							{ id: "13", label: "Ugli", img: "images/ugli.jpg" }
+							{ id: "1", label: "Clementines", img: "assets/images/produce/items/clementines.jpg" },
+							{ id: "2", label: "Grapefruit", img: "assets/images/produce/items/grapefruit.jpg" },
+							{ id: "3", label: "Kumquat", img: "assets/images/produce/items/kumquat.jpg" },
+							{ id: "4", label: "Lemon", img: "assets/images/produce/items/lemon.jpg" },						
+							{ id: "5", label: "Lime", img: "assets/images/produce/items/lime.jpg" },
+							{ id: "6", label: "Mandarin", img: "assets/images/produce/items/mandarin.jpg" },
+							{ id: "7", label: "Minneola", img: "assets/images/produce/items/minneola.jpg" },
+							{ id: "8", label: "Orange", img: "assets/images/produce/items/orange.jpg" },												
+							{ id: "9", label: "Pummelo", img: "assets/images/produce/items/pummelo.jpg" },
+							{ id: "10", label: "Satsuma", img: "assets/images/produce/items/satsuma.jpg" },
+							{ id: "11", label: "Tangerine", img: "assets/images/produce/items/tangerine.jpg" },
+							{ id: "12", label: "Tangelo", img: "assets/images/produce/items/tangelo.jpg" },
+							{ id: "13", label: "Ugli", img: "assets/images/produce/items/ugli.jpg" }
 						]
 					})		
 				});
@@ -78,7 +78,7 @@ define([
 				this.SubCategoryCore = new ObjectStore({
 					objectStore: new Memory({ 
 						data: [
-							{ id: "1", label: "Apples", img: "images/apples.jpg" },
+							{ id: "1", label: "Apples", img: "assets/images/produce/items/apples.jpg" },
 						]
 					})		
 				});
@@ -86,18 +86,18 @@ define([
 				this.SubCategoryMelons = new ObjectStore({
 					objectStore: new Memory({ 
 						data: [
-							{ id: "1", label: "Canary", img: "images/canary.jpg" },
-							{ id: "2", label: "Cantaloupe", img: "images/cantaloupe.jpg" },
-							{ id: "3", label: "Casaba", img: "images/casaba.jpg" },
-							{ id: "4", label: "Charentais", img: "images/charentais.jpg" },						
-							{ id: "5", label: "Christmas", img: "images/christmas.jpg" },
-							{ id: "6", label: "Crenshaw", img: "images/crenshaw.jpg" },
-							{ id: "7", label: "Galia", img: "images/galia.jpg" },
-							{ id: "8", label: "Honeydew", img: "images/honeydew.jpg" },												
-							{ id: "9", label: "Ogen", img: "images/ogen.jpg" },
-							{ id: "10", label: "Persian", img: "images/persian.jpg" },
-							{ id: "11", label: "Sharlyn", img: "images/sharlyn.jpg" },
-							{ id: "12", label: "Watermelon", img: "images/watermelon.jpg" }
+							{ id: "1", label: "Canary", img: "assets/images/produce/items/canary.jpg" },
+							{ id: "2", label: "Cantaloupe", img: "assets/images/produce/items/cantaloupe.jpg" },
+							{ id: "3", label: "Casaba", img: "assets/images/produce/items/casaba.jpg" },
+							{ id: "4", label: "Charentais", img: "assets/images/produce/items/charentais.jpg" },						
+							{ id: "5", label: "Christmas", img: "assets/images/produce/items/christmas.jpg" },
+							{ id: "6", label: "Crenshaw", img: "assets/images/produce/items/crenshaw.jpg" },
+							{ id: "7", label: "Galia", img: "assets/images/produce/items/galia.jpg" },
+							{ id: "8", label: "Honeydew", img: "assets/images/produce/items/honeydew.jpg" },												
+							{ id: "9", label: "Ogen", img: "assets/images/produce/items/ogen.jpg" },
+							{ id: "10", label: "Persian", img: "assets/images/produce/items/persian.jpg" },
+							{ id: "11", label: "Sharlyn", img: "assets/images/produce/items/sharlyn.jpg" },
+							{ id: "12", label: "Watermelon", img: "assets/images/produce/items/watermelon.jpg" }
 						]
 					})		
 				});
@@ -105,12 +105,12 @@ define([
 				this.SubCategoryPitted = new ObjectStore({
 					objectStore: new Memory({ 
 						data: [
-							{ id: "1", label: "Apricots", img: "images/apricots.jpg" },
-							{ id: "2", label: "Avocados", img: "images/avocados.jpg" },
-							{ id: "3", label: "Cherries", img: "images/cherries.jpg" },
-							{ id: "4", label: "Nectarines", img: "images/nectarines.jpg" },						
-							{ id: "5", label: "Peaches", img: "images/peaches.jpg" },
-							{ id: "6", label: "Plums", img: "images/plums.jpg" }
+							{ id: "1", label: "Apricots", img: "assets/images/produce/items/apricots.jpg" },
+							{ id: "2", label: "Avocados", img: "assets/images/produce/items/avocados.jpg" },
+							{ id: "3", label: "Cherries", img: "assets/images/produce/items/cherries.jpg" },
+							{ id: "4", label: "Nectarines", img: "assets/images/produce/items/nectarines.jpg" },						
+							{ id: "5", label: "Peaches", img: "assets/images/produce/items/peaches.jpg" },
+							{ id: "6", label: "Plums", img: "assets/images/produce/items/plums.jpg" }
 						]
 					})		
 				});	
@@ -118,14 +118,14 @@ define([
 				this.SubCategoryBulb = new ObjectStore({
 					objectStore: new Memory({ 
 						data: [
-							{ id: "1", label: "Asparagus", img: "images/asparagus.jpg" },
-							{ id: "2", label: "Celery", img: "images/celery.jpg" },
-							{ id: "3", label: "Fennel", img: "images/fennel.jpg" },
-							{ id: "4", label: "Garlic", img: "images/garlic.jpg" },						
-							{ id: "5", label: "Leeks", img: "images/leeks.jpg" },
-							{ id: "6", label: "Onions", img: "images/onions.jpg" },
-							{ id: "5", label: "Shallots", img: "images/shallots.jpg" },
-							{ id: "6", label: "Spring onions", img: "images/spring_onions.jpg" }
+							{ id: "1", label: "Asparagus", img: "assets/images/produce/items/asparagus.jpg" },
+							{ id: "2", label: "Celery", img: "assets/images/produce/items/celery.jpg" },
+							{ id: "3", label: "Fennel", img: "assets/images/produce/items/fennel.jpg" },
+							{ id: "4", label: "Garlic", img: "assets/images/produce/items/garlic.jpg" },						
+							{ id: "5", label: "Leeks", img: "assets/images/produce/items/leeks.jpg" },
+							{ id: "6", label: "Onions", img: "assets/images/produce/items/onions.jpg" },
+							{ id: "5", label: "Shallots", img: "assets/images/produce/items/shallots.jpg" },
+							{ id: "6", label: "Spring onions", img: "assets/images/produce/items/spring_onions.jpg" }
 						]
 					})		
 				});
@@ -133,14 +133,14 @@ define([
 				this.SubCategoryLeaf = new ObjectStore({
 					objectStore: new Memory({ 
 						data: [
-							{ id: "1", label: "Brocolli", img: "images/brocolli.jpg" },
-							{ id: "2", label: "Brussell Sprouts", img: "images/brussel_sprouts.jpg" },
-							{ id: "3", label: "Cabbage", img: "images/cabbage.jpg" },
-							{ id: "4", label: "Cauliflower", img: "images/cauliflower.jpg" },						
-							{ id: "5", label: "Cress", img: "images/cress.jpg" },
-							{ id: "6", label: "Kale", img: "images/kale.jpg" },
-							{ id: "7", label: "Lettuce", img: "images/lettuce.jpg" },
-							{ id: "8", label: "Spinach", img: "images/spinach.jpg" }
+							{ id: "1", label: "Brocolli", img: "assets/images/produce/items/brocolli.jpg" },
+							{ id: "2", label: "Brussell Sprouts", img: "assets/images/produce/items/brussel_sprouts.jpg" },
+							{ id: "3", label: "Cabbage", img: "assets/images/produce/items/cabbage.jpg" },
+							{ id: "4", label: "Cauliflower", img: "assets/images/produce/items/cauliflower.jpg" },						
+							{ id: "5", label: "Cress", img: "assets/images/produce/items/cress.jpg" },
+							{ id: "6", label: "Kale", img: "assets/images/produce/items/kale.jpg" },
+							{ id: "7", label: "Lettuce", img: "assets/images/produce/items/lettuce.jpg" },
+							{ id: "8", label: "Spinach", img: "assets/images/produce/items/spinach.jpg" }
 						]
 					})		
 				});
@@ -148,9 +148,9 @@ define([
 				this.SubCategoryLegumes = new ObjectStore({
 					objectStore: new Memory({ 
 						data: [
-							{ id: "1", label: "Beans", img: "images/beans.jpg" },
-							{ id: "2", label: "Lentils", img: "images/lentils.jpg" },
-							{ id: "3", label: "Peas", img: "images/peas.jpg" }
+							{ id: "1", label: "Beans", img: "assets/images/produce/items/beans.jpg" },
+							{ id: "2", label: "Lentils", img: "assets/images/produce/items/lentils.jpg" },
+							{ id: "3", label: "Peas", img: "assets/images/produce/items/peas.jpg" }
 						]
 					})		
 				});
@@ -158,17 +158,17 @@ define([
 				this.SubCategoryRoot = new ObjectStore({
 					objectStore: new Memory({ 
 						data: [
-							{ id: "1", label: "Burdock", img: "images/burdock.jpg" },
-							{ id: "2", label: "Carrot", img: "images/carrot.jpg" },
-							{ id: "3", label: "Casava", img: "images/casava.jpg" },
-							{ id: "4", label: "Celeraic", img: "images/celeraic.jpg" },
-							{ id: "5", label: "Daikon", img: "images/daikon.jpg" },
-							{ id: "6", label: "Ginger", img: "images/ginger.jpg" },
-							{ id: "7", label: "Parsnip", img: "images/parsnip.jpg" },
-							{ id: "8", label: "Potatoes", img: "images/potatoes.jpg" },
-							{ id: "9", label: "Radish", img: "images/radish.jpg" },
-							{ id: "10", label: "Turnip", img: "images/turnip.jpg" },
-							{ id: "11", label: "Yam", img: "images/yam.jpg" },
+							{ id: "1", label: "Burdock", img: "assets/images/produce/items/burdock.jpg" },
+							{ id: "2", label: "Carrot", img: "assets/images/produce/items/carrot.jpg" },
+							{ id: "3", label: "Casava", img: "assets/images/produce/items/casava.jpg" },
+							{ id: "4", label: "Celeraic", img: "assets/images/produce/items/celeraic.jpg" },
+							{ id: "5", label: "Daikon", img: "assets/images/produce/items/daikon.jpg" },
+							{ id: "6", label: "Ginger", img: "assets/images/produce/items/ginger.jpg" },
+							{ id: "7", label: "Parsnip", img: "assets/images/produce/items/parsnip.jpg" },
+							{ id: "8", label: "Potatoes", img: "assets/images/produce/items/potatoes.jpg" },
+							{ id: "9", label: "Radish", img: "assets/images/produce/items/radish.jpg" },
+							{ id: "10", label: "Turnip", img: "assets/images/produce/items/turnip.jpg" },
+							{ id: "11", label: "Yam", img: "assets/images/produce/items/yam.jpg" },
 						]
 					})		
 				});
