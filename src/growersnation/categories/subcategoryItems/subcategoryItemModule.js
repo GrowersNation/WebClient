@@ -41,11 +41,11 @@ define(
 				subCategoryItems = subCategoryItemModel.SubCategoryPitted.objectStore.data;
 			} else if (subCategoryId == "Bulb") {
 				subCategoryItems = subCategoryItemModel.SubCategoryBulb.objectStore.data;
-			} else if (subCategoryId == "Leaf") {
+			} else if (subCategoryId == "Salad Greens") {
 				subCategoryItems = subCategoryItemModel.SubCategoryLeaf.objectStore.data;
 			} else if (subCategoryId == "Legumes") {
 				subCategoryItems = subCategoryItemModel.SubCategoryLegumes.objectStore.data;
-			} else if (subCategoryId == "Root") {
+			} else if (subCategoryId == "Root Veg") {
 				subCategoryItems = subCategoryItemModel.SubCategoryRoot.objectStore.data;
 			} else {
 				subCategoryItems = subCategoryItemModel.SubCategoryBerries.objectStore.data;
