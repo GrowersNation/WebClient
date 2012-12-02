@@ -24,8 +24,35 @@ define(
 			//Call out to service to get JSON for sub categories based on category selected
 			//Parse data into model objects
 			
+
+			//**********************************************************************
+			//Dirty hack for stub data
 			
-			subCategoryItems = subCategoryItemModel.SubCategoryItems.objectStore.data;
+			var subCategoryItems;
+			if (subCategoryId == "Berries") {
+				subCategoryItems = subCategoryItemModel.SubCategoryBerries.objectStore.data;
+			} else if (subCategoryId == "Citrus") {
+				subCategoryItems = subCategoryItemModel.SubCategoryCitrus.objectStore.data;
+			} else if (subCategoryId == "Core") {
+				subCategoryItems = subCategoryItemModel.SubCategoryCore.objectStore.data;
+			} else if (subCategoryId == "Melons") {
+				subCategoryItems = subCategoryItemModel.SubCategoryMelons.objectStore.data;
+			} else if (subCategoryId == "Pitted") {
+				subCategoryItems = subCategoryItemModel.SubCategoryPitted.objectStore.data;
+			} else if (subCategoryId == "Bulb") {
+				subCategoryItems = subCategoryItemModel.SubCategoryBulb.objectStore.data;
+			} else if (subCategoryId == "Leaf") {
+				subCategoryItems = subCategoryItemModel.SubCategoryLeaf.objectStore.data;
+			} else if (subCategoryId == "Legumes") {
+				subCategoryItems = subCategoryItemModel.SubCategoryLegumes.objectStore.data;
+			} else if (subCategoryId == "Root") {
+				subCategoryItems = subCategoryItemModel.SubCategoryRoot.objectStore.data;
+			} else {
+				subCategoryItems = subCategoryItemModel.SubCategoryBerries.objectStore.data;
+			}
+			
+			//**********************************************************************
+			
 			
 			//Show data in right-hand panel
 			var categoryTitle = '<h2>'+subCategoryId+' that can grow at your location:</h2>'
