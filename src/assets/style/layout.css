@@ -3,19 +3,62 @@ html, body {
     margin: 0;
     overflow: hidden;
     padding: 0;
+    font-family: calibri, verdana, tahoma, arial;
 }
  
 #appLayout {
     height: 100%;
 }
+
 #rightPanel {
-    width: 14em;
+	width: 100%;
 }
- 
-.claro .demoLayout .edgePanel {
-    background-color: #d0e9fc;
+.centerPanel {
+	display: none;
 }
+
+@media screen and (min-width: 40.5em) {
+	#rightPanel {
+	    width: 24em;
+	}
+		
+	.centerPanel {
+		display: inline;
+	}
+	
+	#header-panel {
+		background-image: url('../images/logo/growers-nation.jpg');
+		background-repeat: no-repeat;
+		background-position: 5px 10px;
+		height: 105px;
+	}
+	
+	#header-panel h3 {
+		position: absolute;
+		bottom: -6px;
+		right: 10px;
+		color: #008000;
+		font-weight: normal;
+		font-style: italic;
+	}	
+}
+
  
+.claro {
+    background-color: #BBFFBB;
+}
+
+.claro .dijitTabContainerTabListNested .dijitTabChecked, .claro .dijitTabContainerTabListNested .dijitTabHover {
+	background-color: #BBFFBB;
+	border-color: #BBFFBB;
+}
+
+.claro .dijitTabContainerTabListNested .dijitTabChecked {
+	background-color: #BBFFBB;
+	border-color: #008000;
+}
+
+
 #viewsChart {
     width: 550px;
     height: 550px;
@@ -23,4 +66,124 @@ html, body {
 
 #locationCheck{
 	visibility: hidden;
+}
+
+#reset-app {
+	cursor: pointer;
+	font-style: italic;
+	color: #41B7D8;
+}
+
+/* Category styles */
+
+#categories {
+	float:left;
+}
+
+.category-id { display:none; }
+
+.category-item {
+	float: left;
+	width: 100%;
+	cursor: pointer;
+}
+.category-item:nth-child(odd) {
+     background: #efefef;
+}
+.category-item:hover {
+	background-color: #BBFFBB;
+}
+
+.category-image, .category-title {
+	float: left;
+}
+
+.category-image {
+	padding: 5px;	
+}
+
+.category-image img {
+	width: 70px;
+	height: 70px;	
+}
+
+.category-title {
+	padding: 5px;
+	line-height: 50px;
+	height: 50px;
+}
+
+/* Growing Info styles */
+
+.month-header-container {
+	width: 100%;
+	float: left;
+	margin-top: 3px;
+}
+
+.month {
+	width: 8.2%;
+	float: left;
+	text-align: center;
+	height: 19px;
+}
+
+.month-header {
+	border-right: solid 1px #ccc;
+	background-color: #eee;
+}
+
+.growing-info {
+	float: left;
+    padding-bottom: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.growing-info h3 {
+	line-height: 50px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.growing-info img {
+	float: left;
+	width: 90px;
+	height: 90px;
+	padding-right: 10px;
+}
+
+.growing-bar {
+	width:100%;
+	float:left;
+	height: 10px;
+}
+
+.growing-section {
+	float:left;
+	height: 10px;
+}
+
+.month-nothing {
+	width: 42px;
+}
+
+.growing-produce {
+	margin-top: 5px;
+	float:left;
+	width: 100%;
+}
+
+.sow {
+	background-color: #996600;
+}
+.plant {
+	background-color: #D8B25C;
+}
+.grow {
+	background-color: #fff;
+	border: solid 1px #ccc;
+}
+.harvest {
+	background-color: #6DAD48;
 }

@@ -1,8 +1,15 @@
 define(
 	["dijit/form/Button",
 	"dojo/dom",
+	"dijit/registry",
+	"dojo/topic",
+	"dojo/on",
+	"utils/CategoryTopics",
+	"utils/GlobalTopics",
 	"dojo/domReady!"],
-	function(Button, dom){
+	function(Button, dom, registry, topic, on, CategoryTopics, GlobalTopics){
+		
+		var lat, lng;
 		
 		var locationContent = dom.byId("locationContent");
 		var checkLocationContent = dom.byId("locationCheck");
@@ -11,7 +18,7 @@ define(
 				{label: "yes",
 				title: "go and choose some produce",
 				checked: false,
-				onClick: nextSection},
+				onClick: getCategoriesForLocation},
 				"yes"
 			);
 			yesButton.style.visibility = "hidden";
@@ -27,16 +34,14 @@ define(
 			noButton.style.visibility = "hidden";
 			noButton.startup();
 		
-		function geolocate(event){
-			navigator.geolocation.getCurrentPosition(showPositionOnMap);
-		}
-		
 		function showPositionOnMap(position){
-			var latlon=position.coords.latitude+","+position.coords.longitude;
-			var img_url="http://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false";
+			lat = position.coords.latitude;
+			lng = position.coords.longitude;
+			var img_url="http://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lng+"&zoom=14&size=400x300&sensor=false";
 			locationContent.innerHTML = "<img src='"+img_url+"'>";
 			checkLocationContent.style.visibility = "visible";
 			createCheckLocationButton();
+			getCategoriesForLocation();
 		}
 		
 		function createCheckLocationButton(){
@@ -47,20 +52,25 @@ define(
 		function useGears(event){
 			locationContent.innerHTML = "";
 		}
-		
-		function nextSection(event){
+
+		function resetApp(){
+			topic.publish(GlobalTopics().REMOVE_LISTENERS);
 			
+			//Make sure we're looking at the map view
+			var mapTab = registry.byId("mapView");
+			var tabs = registry.byId("growersTabs");
+			tabs.selectChild(mapTab);
+			
+			getCategoriesForLocation();
+		}
+		function getCategoriesForLocation(){
+			topic.publish(CategoryTopics().GET_CATEGORIES, lat, lng);
 		}
 		
 		return {
-			create: function(label, nodeId, handler){
-				var btn = new Button(
-					{label: label,
-					checked: false,
-					onClick: geolocate},
-					nodeId
-				);
-				btn.startup();
+			startup: function(){
+				navigator.geolocation.getCurrentPosition(showPositionOnMap);
+				on(document, "#reset-app:click", resetApp);
 			}	
 		}
 	}

@@ -33,7 +33,7 @@
 				//dojo specific packages
 				{name: "dojo", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo", main: "dojo.js.uncompressed.js"}, //dojo.js.uncompressed.js for dev, use dojo.js for release
 				{name: "dijit", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dijit"},
-				{name: "dojox", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojox"},
+				{name: "dojox", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojox", main: "dojo.js"},
 				
 				//other third party libs here, remember to 'require' any of these to use them
 				{name: "jquery", location: "http://code.jquery.com", main: "jquery-1.8.3"},
@@ -52,24 +52,40 @@
 	
 	<div id="appLayout" class="demoLayout" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design: 'headline'">
 		
-		<div class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
-			<h1>Growers' Nation</h1>
+		<div id="header-panel" class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
+			<h3>Planting the seeds locally for a more sustainable future</h3>
 		</div>
 		
 		<div class="centerPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center', tabPosition: 'bottom'">
-			<div id="locationConsentContent" data-dojo-type="dijit/layout/ContentPane">
-				<button id="geolocateButton"></button>
-			</div>
-			<div id="locationContent" data-dojo-type="dijit/layout/ContentPane"></div>
-			<div id="locationCheck" data-dojo-type="dijit/layout/ContentPane">
-				Have we got you location correct?
-				<button id="yes"></button>
-				<button id="no"></button>
-			</div>
+		
+		
+		
+            <div id="growersTabs" data-dojo-type="dijit/layout/TabContainer" nested="true">
+    
+                <div data-dojo-type="dojox/layout/ContentPane" id="mapView" title="Map">
+					<div id="locationContent" data-dojo-type="dijit/layout/ContentPane"></div>
+					<div id="locationCheck" data-dojo-type="dijit/layout/ContentPane">
+						Have we got your location correct?
+						<button id="yes"></button>
+						<button id="no"></button>
+					</div>
+                </div>
+                <div data-dojo-type="dojox/layout/ContentPane" id="growingInfoView" title="Growing Info"></div>
+                <div data-dojo-type="dojox/layout/ContentPane" id="wikiView" title="Wiki Tips"></div>
+                <div data-dojo-type="dojox/layout/ContentPane" id="myPlotView" title="My Plot"></div>
+                <div data-dojo-type="dojox/layout/ContentPane" id="communityView" title="Community"></div>
+            </div>
+		
+		
+			
 		</div>
 		
 		<div id="rightPanel" class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'right', splitter: true">
-			Sidebar content
+			
+			<div id="reset-app" style="display:none;"><< Start over again</div>
+			<div id="category-content"></div>
+			
+		
 		</div>
 		
 	</div>
@@ -83,6 +99,10 @@
 		 */
 		require(
 			["gn/geolocation/geolocationModule",
+			"gn/categories/categoriesModule",
+			"gn/categories/subcategories/subcategoriesModule",
+			"gn/categories/subcategoryItems/subcategoryItemModule",
+			"gn/growinginfo/growingInfoModule",
 			"dojo/parser",
 			"dijit/layout/BorderContainer",
 			"dijit/layout/TabContainer",
@@ -96,9 +116,9 @@
 			 * @param geolocationModule
 			 * @param dojo parser 
 			 */
-			function(geolocate, parser){
+			function(geolocate, categories, subcategories, subcategoryItems, growingInfo, parser){
 				parser.parse();
-				geolocate.create("Find me!", geolocateButton);
+				geolocate.startup();
 			}
 		);
 	</script> 
