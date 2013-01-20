@@ -2,7 +2,7 @@ define(
 	["dojo/dom",
 	"dojo/topic",
 	"dojo/on",
-	"utils/CategoryTopics",
+	"gn/categories/topic/CategoryTopics",
 	"gn/categories/subcategories/model/SubCategoriesModel",
 	"dojo/domReady!"],
 	function(dom, topic, on, CategoryTopics, SubCategoriesModel){
