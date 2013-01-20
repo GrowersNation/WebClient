@@ -3,7 +3,7 @@ define(
 	"dojo/topic",
 	"dojo/on",
 	"utils/CategoryTopics",
-	"growersnation/categories/subcategories/model/SubCategoriesModel",
+	"gn/categories/subcategories/model/SubCategoriesModel",
 	"dojo/domReady!"],
 	function(dom, topic, on, CategoryTopics, SubCategoriesModel){
 		var handle = topic.subscribe(CategoryTopics().GET_SUB_CATEGORIES, getSubCategories);
