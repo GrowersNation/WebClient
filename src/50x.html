@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Growers' Nation - planting the seeds locally for a more sustainable future" />
+    <meta name="author" content="Jeremy Brooks" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+	
+	<title>Growers' Nation</title>
+	
+	<!-- standard dojo theme -->
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dijit/themes/claro/claro.css" media="screen"/>
+	
+	<!-- growers nation styles start here-->
+	<link rel="stylesheet" href="assets/style/layout.css" media="screen"/>
+	
+	<script>
+		/* Instead of using the inline dojo-config attribute
+		* create this variable so we can configure dojo here.
+		* This seems a little clearer, easier to read as a config.
+		*/
+		var dojoConfig = {
+			baseUrl: "./",
+			async: true,
+			isDebug: true,
+			parseOnLoad: false,//false to allow for us to call this independantly in js later on
+			//gfxRenderer: "svg, canvas, silverlight",//svg is preferred chart renderer
+		
+			//here are the packages dojo will be aware of and related js files
+			//NOTE: do not import any other scripts through a script tag except for dojo.js,
+			//if you do, you'll experience random errors and a double download of each js file required.
+			packages: [
+				//dojo specific packages
+				{name: "dojo", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo", main: "dojo.js.uncompressed.js"}, //dojo.js.uncompressed.js for dev, use dojo.js for release
+				{name: "dijit", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dijit"},
+				{name: "dojox", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojox", main: "dojo.js"},
+				
+				//other third party libs here, remember to 'require' any of these to use them
+				{name: "jquery", location: "http://code.jquery.com", main: "jquery-1.8.3"},
+				{name: "modernizr", location: "http://modernizr.com/downloads", main: "modernizr.js"}, //uncompressed version of modernizr for dev
+				
+				//growers nation packages start here
+				{name: "gn", location: "growersnation"}
+			]
+		};
+	</script>
+	
+</head>
+
+<!-- this basic layout uses the dojo layout widgets and a dojo standard them for styling applied via the body class -->
+<body class="claro">
+	
+	<div id="appLayout" class="demoLayout" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design: 'headline'">
+		
+		<div id="header-panel" class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
+			<h3>Planting the seeds locally for a more sustainable future</h3>
+		</div>
+		
+		<div class="centerPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center', tabPosition: 'bottom'">
+		
+		
+		
+            <div id="growersTabs" data-dojo-type="dijit/layout/TabContainer" nested="true">
+    
+                <div data-dojo-type="dojox/layout/ContentPane" id="mapView" title="Map">
+					<div id="locationContent" data-dojo-type="dijit/layout/ContentPane"></div>
+					<div id="locationCheck" data-dojo-type="dijit/layout/ContentPane">
+						Have we got your location correct?
+						<button id="yes"></button>
+						<button id="no"></button>
+					</div>
+                </div>
+                <div data-dojo-type="dojox/layout/ContentPane" id="growingInfoView" title="Growing Info"></div>
+                <div data-dojo-type="dojox/layout/ContentPane" id="wikiView" title="Wiki Tips"></div>
+                <div data-dojo-type="dojox/layout/ContentPane" id="myPlotView" title="My Plot"></div>
+                <div data-dojo-type="dojox/layout/ContentPane" id="communityView" title="Community"></div>
+            </div>
+		
+		
+			
+		</div>
+		
+		<div id="rightPanel" class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'right', splitter: true">
+			
+			<div id="reset-app" style="display:none;"><< Start over again</div>
+			<div id="category-content"></div>
+			
+		
+		</div>
+		
+	</div>
+	
+	<!-- dojo local import not in header becasue the dojo config should happen before this import -->
+	<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo/dojo.js"></script>
+	<script>
+		/**
+		 * Required packages for any daclarative markup that uses a dojo widget type such as BorderContainer,
+		 * any third party libs, the dojo parser, and any custom growers nation packages such as geolocationModule.
+		 */
+		require(
+			["gn/geolocation/geolocationModule",
+			"gn/categories/categoriesModule",
+			"gn/categories/subcategories/subcategoriesModule",
+			"gn/categories/subcategoryItems/subcategoryItemModule",
+			"gn/growinginfo/growingInfoModule",
+			"dojo/parser",
+			"dijit/layout/BorderContainer",
+			"dijit/layout/TabContainer",
+			"dijit/layout/ContentPane",
+			"dojo/domReady!"],
+			
+			/**
+			 * Parses the document using the dojo parser which will set up all dojo widgets.
+			 * Instantiates any other modules or widgets needed.
+			 * 
+			 * @param geolocationModule
+			 * @param dojo parser 
+			 */
+			function(geolocate, categories, subcategories, subcategoryItems, growingInfo, parser){
+				parser.parse();
+				geolocate.startup();
+			}
+		);
+	</script> 
+	
+</body>
+
+</html>
