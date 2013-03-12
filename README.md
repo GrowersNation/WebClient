@@ -17,5 +17,14 @@ then navigate to `localhost:8080` to see the site. Any changes you make will be 
 ## Making changes
 
 In general the project uses the "master-develop" branching strategy with Issues acting as branch names. This means that the latest release candidate is the head of `develop` and the current production release is the head of `master`.
->>>>>>> enhance-geolocation-functionality
 
+## Deployment
+
+The project is deployed using a git repo push which triggers a build script on the server. You can only push if you
+have the access credentials for the machine.
+
+Assuming that you have set up your repository appropriately (see later) then you can deploy using this command:
+```
+$ git push production +master:refs/heads/master
+```
+[Read more about deploying static site with git](http://gary-rowe.com/agilestack/2012/12/14/how-to-deploy-static-sites-with-git).
