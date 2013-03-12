@@ -4,7 +4,7 @@ define(
 	"dijit/registry",
 	"dojo/topic",
 	"dojo/on",
-	"utils/CategoryTopics",
+	"gn/categories/topic/CategoryTopics",
 	"utils/GlobalTopics",
 	"dojo/domReady!"],
 	function(Button, dom, registry, topic, on, CategoryTopics, GlobalTopics){
@@ -41,7 +41,7 @@ define(
 			locationContent.innerHTML = "<img src='"+img_url+"'>";
 			checkLocationContent.style.visibility = "visible";
 			createCheckLocationButton();
-			getCategoriesForLocation();
+			//getCategoriesForLocation();
 		}
 		
 		function createCheckLocationButton(){
@@ -61,7 +61,7 @@ define(
 			var tabs = registry.byId("growersTabs");
 			tabs.selectChild(mapTab);
 			
-			getCategoriesForLocation();
+			//getCategoriesForLocation();
 		}
 		function getCategoriesForLocation(){
 			topic.publish(CategoryTopics().GET_CATEGORIES, lat, lng);
