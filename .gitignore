@@ -1,2 +1,5 @@
 *.dll
 .metadata/*
+WebClient.sublime-project
+WebClient.sublime-workspace
+
