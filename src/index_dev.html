@@ -12,18 +12,8 @@
 
 		<title>Growers' Nation</title>
 		
-		<style>
-			h1 {
-				font-size: 18pt;
-			}
-			
-			.login {
-				position: absolute;
-				right: 7px;
-				top: 7px;
-				cursor: pointer;
-			}
-		</style>
+		<!-- growers nation styles start here-->
+		<link rel="stylesheet" href="assets/style/responsivelayout.css" media="screen"/>
 		
 		<script>
 			/* Instead of using the inline dojo-config attribute
@@ -74,7 +64,7 @@
 			 * any third party libs, the dojo parser, and any custom growers nation packages such as geolocationModule.
 			 */
 			require(["dojo/parser",
-					 "gn/responsive/location/MyLocation",
+					 "gn/responsive/Context",
 					 "dojo/domReady!"],
 
 			/**
@@ -83,8 +73,9 @@
 			 * 
 			 * @param dojo parser
 			 */
-			function(parser) {
+			function(parser, Context) {
 				parser.parse();
+				new Context();
 			});
 		</script>
 		
