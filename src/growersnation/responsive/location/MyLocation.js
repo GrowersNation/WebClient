@@ -19,7 +19,18 @@ define(
 				handleAs: "text"
 			}).then(
 				function(data){
-					document.getElementById("test").innerHTML = data;
+					var result = JSON.parse(data);
+					var locNames = "";
+					
+					for (var attribute in result){
+						if (result.hasOwnProperty(attribute) === true && attribute === "predictions"){
+							for (var index = 0; index < result[attribute].length; index++){
+								locNames += "<p>" + result[attribute][index].description + "</p>";
+							}
+						}
+					}
+					
+					document.getElementById("test").innerHTML = locNames;
 				},
 				function(error){
 					document.getElementById("test").innerHTML = error;
