@@ -41,6 +41,10 @@
 					{
 						name : "gn",
 						location : "growersnation"
+					},
+					{
+						name : "util",
+						location : "utils"
 					}
 				]
 			};
@@ -52,6 +56,7 @@
 		
 		<!-- dojo inport -->
 		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js.uncompressed.js"></script>
+		
 		<script>
 		
 			/*function validateLoc(args){
@@ -75,6 +80,12 @@
 			 */
 			function(parser, Context) {
 				parser.parse();
+				
+				//is JSON supported natively?
+				if (typeof JSON !== "object"){
+					require(["util/json2"]);
+				}
+				
 				new Context();
 			});
 		</script>
