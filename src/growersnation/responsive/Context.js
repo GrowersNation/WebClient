@@ -1,12 +1,13 @@
 define(
 	["dojo/_base/declare",
-	 "gn/responsive/location/MyLocation"],
+	 "gn/responsive/Bootstrap"],
 	
 	function (declare,
-			  MyLocation){
+			  Bootstrap){
+			  	
 		return declare(null, {
 			constructor: function(){
-				new MyLocation({}, "main").startup();
+				new Bootstrap();
 			}
 		});
 	}

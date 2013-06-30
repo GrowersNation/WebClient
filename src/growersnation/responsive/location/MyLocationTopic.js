@@ -1,5 +1,7 @@
-return {
-	GET_SINGLE_LOCATION: function(){
-		return "getSingleLocation";
+define([], function(){
+	return {
+		GET_CROPS_FOR_LOCATION: function(){
+			return "getCropsForLocation";
+		}
 	}
-}
+})

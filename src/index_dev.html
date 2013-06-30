@@ -71,6 +71,7 @@
 			require(["dojo/parser",
 					 "gn/responsive/Context",
 					 "dojox/mobile/deviceTheme",
+					 "gn/responsive/location/MyLocation",
 					 "dojox/mobile",
 					 "dojox/mobile/compat",
 					 "dojo/domReady!"],
@@ -81,7 +82,7 @@
 				 * 
 				 * @param dojo parser
 				 */
-				function(parser, Context, deviceTheme) {
+				function(parser, Context, deviceTheme, MyLocation) {
 					parser.parse();
 					
 					//is JSON supported natively?
@@ -90,6 +91,7 @@
 					}
 					
 					new Context();
+					new MyLocation({}, "main").startup();
 				}
 			);
 		</script>

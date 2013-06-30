@@ -13,8 +13,8 @@ define(
 	 "dijit/_WidgetBase",
 	 "dijit/_WidgetsInTemplateMixin",
 	 "dijit/_TemplatedMixin",
-	 "dijit/form/ValidationTextBox",
-	 "dijit/form/Form"],
+	 "gn/responsive/location/MyLocationTopic",
+	 "dojo/topic"],
 	
 	function(domConstruct, 
 			 request,
@@ -26,7 +26,9 @@ define(
 			 template,
 			 _WidgetBase,
 			 _WidgetsInTemplateMixin,
-			 _TemplatedMixin){
+			 _TemplatedMixin,
+			 MyLocationTopic,
+			 topic){
 		
 		//var locInput = "<form>Location: <input id='location' type='text' name='location'><input type='submit' value='Submit'></form>";
 		//var autoComplete = "<div id='locsFound'></div>";
@@ -34,6 +36,7 @@ define(
 		return declare([_WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin], {
 			map: undefined,
 			templateString: template,
+			selectedLocationReference: undefined,
 			
 			startup: function(){
 				on(this.location, "keyup", lang.hitch(this, this.autoCompleteLocResults));
@@ -62,6 +65,7 @@ define(
 										var name = event.currentTarget.dataset.locName;
 										this.location.value = name;
 										this.handleSelectedLocation(locRef)
+										this.selectedLocationReference = locRef;
 									}));
 									domConstruct.place(node, "locsFound");
 								}
@@ -93,7 +97,15 @@ define(
 			handleSubmit: function(event){
 				event.preventDefault();
 				if(this.locSearchForm.checkValidity()){
-		            alert(true);
+		            MyLocationModel.get(this.selectedLocationReference).then(
+		            	lang.hitch(this, function(data){
+		            		var locPosition = data.result.geometry.location;
+							topic.publish(MyLocationTopic.GET_CROPS_FOR_LOCATION(), {location: locPosition});
+		            	}),
+		            	function(error){
+		            		this.locsFoundOnMap.innerHTML = "<p>" + error + "</p>";
+		            	}
+		            )
 		        } else {
 			        return false;
 		        }
