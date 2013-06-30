@@ -1,0 +1,473 @@
+{
+	"description": {
+		"what": "Crops which are valid for times='this month', using compost='False'",
+		"where": "the URI used to get this data"
+	},
+	"results": [
+		{
+			"crop": {
+					"name": "strawberries (first crop)",
+					"image": "images/fruit/berries/strawberries.png",
+					"information":"Plant strawberries now for a crop next summer.",
+					"category": {
+							"name": "fruit",
+							"image": "images/fruit.png"
+					},
+					"type": {
+							"name": "berry",
+							"image": "images/fruit/berries.png"
+					},
+					"planting": {
+							"startDate": "2013-08-01",
+							"endDate": "2013-08-31"
+					}
+			}
+		},{
+				"crop": {
+						"name": "strawberries (pre-planted)",
+						"image": "images/fruit/berries/strawberries.png",
+						"information": "Harvest strawberries you've planted in previous years now.",
+						"category": {
+								"name": "fruit",
+								"image": "images/fruit.png"
+						},
+						"type": {
+								"name": "berries",
+								"image": "images/fruit/berries.png"
+						},
+						"harvesting": {
+								"startDate": "2013-07-05",
+								"endDate": "2013-07-25"
+						}
+				}
+		},{
+				"crop": {
+						"name": "raspberries (first crop)",
+						"image": "images/fruit/berries/raspberries.png",
+						"information":"Plant raspberries now for a crop next summer.",
+						"category": {
+								"name": "fruit",
+								"image": "images/fruit.png"
+						},
+						"type": {
+								"name": "berry",
+								"image": "images/fruit/berries.png"
+						},
+						"planting": {
+								"startDate": "2013-06-01",
+								"endDate": "2013-07-31"
+						},
+						"harvesting": {
+								"startDate": "2014-06-01",
+								"endDate": "2014-07-31"
+						}
+				}
+		},{
+				"crop": {
+						"name": "raspberries (pre-planted)",
+						"image": "images/fruit/berries/raspberries.png",
+						"information":"Harvesting period",
+						"category": {
+								"name": "fruit",
+								"image": "images/fruit.png"
+						},
+						"type": {
+								"name": "berry",
+								"image": "images/fruit/berries.png"
+						},
+						"planting": {
+								"startDate": "2013-08-01",
+								"endDate": "2013-09-31"
+						}
+				}
+		},{
+				"crop": {
+						"name": "apples (Cox variety)",
+						"image": "images/fruit/core/apples_cox.png",
+						"information":"how do you like them apples?",
+						"category": {
+								"name": "fruit",
+								"image": "images/fruit.png"
+						},
+						"type": {
+								"name": "core",
+								"image": "images/fruit/apples.png"
+						},
+						"harvesting": {
+								"startDate": "2013-10-01",
+								"endDate": "2013-10-31"
+						}
+				}
+		},{
+				"crop": {
+						"name": "apples (Worcester Permain variety)",
+						"image": "images/fruit/core/apples_worcester_permain.png",
+						"information":"how about these apples?",
+						"category": {
+								"name": "fruit",
+								"image": "images/fruit.png"
+						},
+						"type": {
+								"name": "core",
+								"image": "images/fruit/apples.png"
+						},
+						"harvesting": {
+								"startDate": "2013-09-01",
+								"endDate": "2013-09-20"
+						}
+				}
+		},{
+				"crop": {
+						"name": "rhubarb",
+						"image": "images/fruit/other/rhubarb.png",
+						"information":"rhubarb rhubarb rhubarb",
+						"category": {
+								"name": "fruit",
+								"image": "images/fruit.png"
+						},
+						"type": {
+								"name": "other",
+								"image": "images/fruit/other.png"
+						},
+						"planting": {
+								"startDate": "2013-02-01",
+								"endDate": "2013-03-31"
+						},
+						"harvesting": {
+								"startDate": "2013-04-01",
+								"endDate": "2013-07-15"
+						}
+				}
+		},{
+				"crop": {
+						"name": "red grapes",
+						"image": "images/fruit/berries/red_grapes.png",
+						"information":"Expect first crop 3 years after planting.",
+						"category": {
+								"name": "fruit",
+								"image": "images/fruit.png"
+						},
+						"type": {
+								"name": "berries",
+								"image": "images/fruit/berries.png"
+						},
+						"harvesting": {
+								"startDate": "2013-09-01",
+								"endDate": "2013-09-31"
+						}
+				}
+		},{
+				"crop": {
+						"name": "white grapes",
+						"image": "images/fruit/berries/white_grapes.png",
+						"information":"Expect first crop 3 years after planting.",
+						"category": {
+								"name": "fruit",
+								"image": "images/fruit.png"
+						},
+						"type": {
+								"name": "berries",
+								"image": "images/fruit/berries.png"
+						},
+						"harvesting": {
+								"startDate": "2013-08-15",
+								"endDate": "2013-09-31"
+						}
+				}
+		},{
+				"crop": {
+						"name": "plums (dessert)",
+						"image": "images/fruit/core/plums.png",
+						"information":"plum",
+						"category": {
+								"name": "fruit",
+								"image": "images/fruit.png"
+						},
+						"type": {
+								"name": "core",
+								"image": "images/fruit/apples.png"
+						},
+						"harvesting": {
+								"startDate": "2013-07-15",
+								"endDate": "2013-08-15"
+						}
+				}
+		},{
+				"crop": {
+						"name": "peaches",
+						"image": "images/fruit/core/peaches.png",
+						"information": "going to the country...",
+						"category": {
+								"name": "fruit",
+								"image": "images/fruit.png"
+						},
+						"type": {
+								"name": "core",
+								"image": "images/fruit/apples.png"
+						},
+						"harvesting": {
+								"startDate": "2013-07-15",
+								"endDate": "2013-08-05"
+						}
+				}
+		},{
+				"crop": {
+						"name": "boysenberries",
+						"image": "images/fruit/core/boysenberries.png",
+						"information": "girlsenberries",
+						"category": {
+								"name": "fruit",
+								"image": "images/fruit.png"
+						},
+						"type": {
+								"name": "berries",
+								"image": "images/fruit/berries.png"
+						},
+						"harvesting": {
+								"startDate": "2013-07-01",
+								"endDate": "2013-08-10"
+						}
+				}
+		},{
+				"crop": {
+						"name": "asparagus",
+						"image": "images/vegetables/rootvegetables/asparagus.png",
+						"information": "I like hollandaise.",
+						"category": {
+								"name": "vegetables",
+								"image": "images/vegetables.png"
+						},
+						"type": {
+								"name": "root vegetables",
+								"image": "images/vegetables/rootvegetables.png"
+						},
+						"sowing": {
+								"startDate": "2013-04-01",
+								"endDate": "2013-04-30"
+						},
+						"planting": {
+								"startDate": "2013-04-01",
+								"endDate": "2013-04-15"
+						},
+						"harvesting": {
+								"startDate": "2013-04-22",
+								"endDate": "2013-06-07"
+						}
+				}
+		},{
+				"crop": {
+						"name": "carrots",
+						"image": "images/vegetables/rootvegetables/carrots.png",
+						"information": "What's up doc?",
+						"category": {
+								"name": "vegetables",
+								"image": "images/vegetables.png"
+						},
+						"type": {
+								"name": "root vegetables",
+								"image": "images/vegetables/rootvegetables.png"
+						},
+						"sowing": {
+								"startDate": "2013-04-01",
+								"endDate": "2013-06-30"
+						},
+						"harvesting": {
+								"startDate": "2013-07-01",
+								"endDate": "2013-10-31"
+						}
+				}
+		},{
+				"crop": {
+						"name": "corn",
+						"image": "images/grains/cereals/corn.png",
+						"information": "Ooh me feet.",
+						"category": {
+								"name": "grains",
+								"image": "images/grains.png"
+						},
+						"type": {
+								"name": "cereals",
+								"image": "images/grains/cereals.png"
+						},
+						"sowing": {
+								"startDate": "2012-12-25",
+								"endDate": "2013-01-12"
+						},
+						"planting": {
+								"startDate": "2013-04-05",
+								"endDate": "2013-04-15"
+						},
+						"harvesting": {
+								"startDate": "2013-06-15",
+								"endDate": "2013-07-13"
+						}
+				}
+		},{
+				"crop": {
+						"name": "cucumbers",
+						"image": "images/vegetables/salads/cucumbers.png",
+						"information": "Twirly whirl.",
+						"category": {
+								"name": "vegetables",
+								"image": "images/vegetables.png"
+						},
+						"type": {
+								"name": "salads",
+								"image": "images/vegetables/salads.png"
+						},
+						"sowing": {
+								"startDate": "2013-05-25",
+								"endDate": "2013-06-07"
+						},
+						"harvesting": {
+								"startDate": "2013-08-01",
+								"endDate": "2013-09-21"
+						}
+				}
+		},{
+				"crop": {
+						"name": "leeks",
+						"image": "images/vegetables/bulbs/leeks.png",
+						"information": "A leeky abstraction.",
+						"category": {
+								"name": "vegetables",
+								"image": "images/vegetables.png"
+						},
+						"type": {
+								"name": "bulbs",
+								"image": "images/vegetables/bulbs.png"
+						},
+						"sowing": {
+								"startDate": "2013-03-15",
+								"endDate": "2013-04-15"
+						},
+						"planting": {
+								"startDate": "2013-06-01",
+								"endDate": "2013-07-07"
+						},
+						"harvesting": {
+								"startDate": "2013-11-01",
+								"endDate": "2014-04-15"
+						}
+				}
+		},{
+				"crop": {
+						"name": "lettuces (summer/autumn crop)",
+						"image": "images/vegetables/salads/lettuces.png",
+						"information": "Lettuce plant.",
+						"category": {
+								"name": "vegetables",
+								"image": "images/vegetables.png"
+						},
+						"type": {
+								"name": "salads",
+								"image": "images/vegetables/salads.png"
+						},
+						"sowing": {
+								"startDate": "2013-04-21",
+								"endDate": "2013-07-10"
+						},
+						"harvesting": {
+								"startDate": "2013-06-15",
+								"endDate": "2013-10-07"
+						}
+				}
+		},{
+				"crop": {
+						"name": "onions (summer crop)",
+						"image": "images/vegetables/bulbs/leeks.png",
+						"information": "Mind your own onions.",
+						"category": {
+								"name": "vegetables",
+								"image": "images/vegetables.png"
+						},
+						"type": {
+								"name": "bulbs",
+								"image": "images/vegetables/bulbs.png"
+						},
+						"sowing": {
+								"startDate": "2013-02-21",
+								"endDate": "2013-03-21"
+						},
+						"harvesting": {
+								"startDate": "2013-07-07",
+								"endDate": "2013-09-21"
+						}
+				}
+		},{
+				"crop": {
+						"name": "peas (autumn crop)",
+						"image": "images/vegetables/legumes/peas.png",
+						"information": "Give peas a chance.",
+						"category": {
+								"name": "vegetables",
+								"image": "images/vegetables.png"
+						},
+						"type": {
+								"name": "legumes",
+								"image": "images/vegetables/legumes.png"
+						},
+						"sowing": {
+								"startDate": "2013-06-15",
+								"endDate": "2013-07-15"
+						},
+						"harvesting": {
+								"startDate": "2013-09-01",
+								"endDate": "2013-10-15"
+						}
+				}
+		},{
+				"crop": {
+						"name": "peppers",
+						"image": "images/vegetables/salads/peppers.png",
+						"information": "Cover ground with a cloche ~2 weeks before planting, and leave covered in early stages.",
+						"category": {
+								"name": "vegetables",
+								"image": "images/vegetables.png"
+						},
+						"type": {
+								"name": "salads",
+								"image": "images/vegetables/salads.png"
+						},
+						"sowing": {
+								"startDate": "2013-06-01",
+								"endDate": "2013-06-15"
+						},
+						"harvesting": {
+								"startDate": "2013-08-01",
+								"endDate": "2013-09-30"
+						}
+				}
+		},{
+				"crop": {
+						"name": "tomatoes (outdoors)",
+						"image": "images/vegetables/salads/tomatoes.png",
+						"information": "Sow under glass, and transplant seedlings under cloches.",
+						"category": {
+								"name": "vegetables",
+								"image": "images/vegetables.png"
+						},
+						"type": {
+								"name": "salads",
+								"image": "images/vegetables/salads.png"
+						},
+						"sowing": {
+								"startDate": "2013-03-15",
+								"endDate": "2013-04-15"
+						},
+						"planting": {
+								"startDate": "2013-05-07",
+								"endDate": "2013-05-21"
+						},
+						"harvesting": {
+								"startDate": "2013-08-07",
+								"endDate": "2013-09-15"
+						}
+				}
+		}
+	],
+	"status": {
+		"code": "200",
+		"message": "OK"
+	}
+}

@@ -4,51 +4,99 @@
 define(
 	["dojo/dom-construct",
 	 "dojo/request",
-	 "dojo/_base/declare"],
+	 "dojo/on",
+	 "dojo/_base/declare",
+	 "dojo/_base/lang",
+	 "gn/responsive/location/MyLocationModel",
+	 "gn/responsive/location/AutoCompleteLocationModel",
+	 "dojo/text!./templates/myLocationTemplate.html",
+	 "dijit/_WidgetBase",
+	 "dijit/_WidgetsInTemplateMixin",
+	 "dijit/_TemplatedMixin",
+	 "dijit/form/ValidationTextBox",
+	 "dijit/form/Form"],
 	
 	function(domConstruct, 
 			 request,
-			 declare){
+			 on,
+			 declare,
+			 lang,
+			 MyLocationModel,
+			 AutoCompleteLocationModel,
+			 template,
+			 _WidgetBase,
+			 _WidgetsInTemplateMixin,
+			 _TemplatedMixin){
 		
-		var autoCompleteUri = "/maps/api/place/autocomplete/json?&sensor=true&key=AIzaSyAdxFxJZ5P0VdgGB3okJ9GoiQ5ebT2FFYM";
-		var detailsUri = "/maps/api/place/details/json?sensor=false&key=AIzaSyAdxFxJZ5P0VdgGB3okJ9GoiQ5ebT2FFYM";
-		var locInput = "<form>Location: <input id='location' type='text' name='location'><input type='submit' value='Submit'></form>";
+		//var locInput = "<form>Location: <input id='location' type='text' name='location'><input type='submit' value='Submit'></form>";
+		//var autoComplete = "<div id='locsFound'></div>";
 		
-		return declare(null, {
-			constructor: function(){
-				
-				//	summary
-				//		adds listener and elements linked to location search results
-				
-				domConstruct.empty("main");
-				var input = domConstruct.place(locInput, "main");
-				document.getElementById("location").onkeyup = function(args){
-					var uri = autoCompleteUri + "&input=" + document.getElementById("location").value;
-					request.get(uri, {
-						handleAs: "text"
-					}).then(
-						function(data){
-							var result = JSON.parse(data);
-							var locNames = "";
-							
-							for (var attribute in result){
-								if (result.hasOwnProperty(attribute) === true && attribute === "predictions"){
-									for (var index = 0; index < result[attribute].length; index++){
-										var uniqueRef = result[attribute][index].reference;
-										var description = result[attribute][index].description;
-										locNames += "<p><a href='" + detailsUri + '&reference=' + uniqueRef + "'>" + description + "</a></p>";
-									}
+		return declare([_WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin], {
+			map: undefined,
+			templateString: template,
+			
+			startup: function(){
+				on(this.location, "keyup", lang.hitch(this, this.autoCompleteLocResults));
+				on(this.locSearchForm, "submit", lang.hitch(this, this.handleSubmit));
+			},
+			
+			autoCompleteLocResults: function(args){
+				var searchString = this.location.value;
+				AutoCompleteLocationModel.get(searchString).then(
+					lang.hitch(this, function(data){
+						// clear results node
+						domConstruct.empty("locsFound");
+						
+						// loop over all locations found
+						for (var attribute in data){
+							if (data.hasOwnProperty(attribute) === true && attribute === "predictions"){
+								for (var index = 0; index < data[attribute].length; index++){
+									// extract required data
+									var uniqueRef = data[attribute][index].reference;
+									var name = data[attribute][index].description;
+									var node = domConstruct.toDom("<p class='locSearchResult' data-loc-name='" + name + "' data-loc-refernce='" + uniqueRef + "'>" + name + "</p>");
+									
+									// listen for click event on each location
+									on(node, "click", lang.hitch(this, function(event){
+										var locRef = event.currentTarget.dataset.locRefernce;
+										var name = event.currentTarget.dataset.locName;
+										this.location.value = name;
+										this.handleSelectedLocation(locRef)
+									}));
+									domConstruct.place(node, "locsFound");
 								}
 							}
-							
-							document.getElementById("test").innerHTML = locNames;
-						},
-						function(error){
-							document.getElementById("test").innerHTML = error;
 						}
-					);
-					return false;
-				}
+						
+					}),
+					function(error){
+						document.getElementById("locsFound").innerHTML = error;
+					}
+				);
+			},
+			
+			handleSelectedLocation: function(locationReference){
+				MyLocationModel.get(locationReference).then(
+					lang.hitch(this, function(data){
+						var locGeometry = data.result.geometry;
+						var locPosition = locGeometry.location;
+						var locViewport = locGeometry.viewport;
+						var img_url="http://maps.googleapis.com/maps/api/staticmap?center="+locPosition.lat+","+locPosition.lng+"&zoom=14&size=400x300&sensor=false";
+						this.locsFoundOnMap.innerHTML = "<img src='"+img_url+"'>";
+					}),
+					function(error){
+						this.locsFoundOnMap.innerHTML = "<p>" + error + "</p>";
+					}
+				);
+			},
+			
+			handleSubmit: function(event){
+				event.preventDefault();
+				if(this.locSearchForm.checkValidity()){
+		            alert(true);
+		        } else {
+			        return false;
+		        }
 			}
 		});
 	}

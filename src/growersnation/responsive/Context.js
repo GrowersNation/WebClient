@@ -6,7 +6,7 @@ define(
 			  MyLocation){
 		return declare(null, {
 			constructor: function(){
-				new MyLocation();
+				new MyLocation({}, "main").startup();
 			}
 		});
 	}

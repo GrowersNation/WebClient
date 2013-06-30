@@ -10,10 +10,11 @@
 		<meta name="author" content="Jeremy Brooks" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>Growers' Nation</title>
+		<title>Growers Nation</title>
 		
 		<!-- growers nation styles start here-->
 		<link rel="stylesheet" href="assets/style/responsivelayout.css" media="screen"/>
+		<link rel="stylesheet" href="assets/style/location.css" media="screen"/>
 		
 		<script>
 			/* Instead of using the inline dojo-config attribute
@@ -33,9 +34,8 @@
 				packages : [
 					//dojo specific packages
 					{
-						name : "dojo",
-						location : "http://ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo",
-						main : "dojo.js.uncompressed.js"
+						name : "dojo", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojo", main : "dojo.js.uncompressed.js",
+						name : "dijit", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dijit"
 					},
 					//growers nation packages start here
 					{
@@ -55,7 +55,7 @@
 	<body>
 		
 		<!-- dojo inport -->
-		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js.uncompressed.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojo/dojo.js.uncompressed.js"></script>
 		
 		<script>
 		
@@ -70,24 +70,28 @@
 			 */
 			require(["dojo/parser",
 					 "gn/responsive/Context",
+					 "dojox/mobile/deviceTheme",
+					 "dojox/mobile",
+					 "dojox/mobile/compat",
 					 "dojo/domReady!"],
 
-			/**
-			 * Parses the document using the dojo parser which will set up all dojo widgets.
-			 * Instantiates any other modules or widgets needed.
-			 * 
-			 * @param dojo parser
-			 */
-			function(parser, Context) {
-				parser.parse();
-				
-				//is JSON supported natively?
-				if (typeof JSON !== "object"){
-					require(["util/json2"]);
+				/**
+				 * Parses the document using the dojo parser which will set up all dojo widgets.
+				 * Instantiates any other modules or widgets needed.
+				 * 
+				 * @param dojo parser
+				 */
+				function(parser, Context, deviceTheme) {
+					parser.parse();
+					
+					//is JSON supported natively?
+					if (typeof JSON !== "object"){
+						require(["util/json2"]);
+					}
+					
+					new Context();
 				}
-				
-				new Context();
-			});
+			);
 		</script>
 		
 		<div>
@@ -98,10 +102,6 @@
 
 			<div id="main">
 				main content
-			</div>
-			
-			<div id="test">
-				
 			</div>
 			
 			<footer>
