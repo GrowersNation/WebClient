@@ -1,0 +1,31 @@
+h1 {
+	font-size: 18pt;
+}
+
+.login {
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	cursor: pointer;
+}
+
+a:link {
+	color: #0000FF;
+}      /* unvisited link */
+a:visited {
+	color: #0000FF;
+}  /* visited link */
+a:hover {
+	color: #008000;
+}  /* mouse over link */
+a:active {
+	color: #0000FF;
+}  /* selected link */
+
+@media screen and (min-width: 40.5em) {
+	
+}
+
+@media screen and (min-width: 40.5em) {
+	
+}

@@ -1,0 +1,16 @@
+.locSearchResult {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.relativeParent {
+	position: relative;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
