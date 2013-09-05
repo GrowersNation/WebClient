@@ -33,19 +33,11 @@
 				//if you do, you'll experience random errors and a double download of each js file required.
 				packages : [
 					//dojo specific packages
-					{
-						name : "dojo", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojo", main : "dojo.js.uncompressed.js",
-						name : "dijit", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dijit"
-					},
-					//growers nation packages start here
-					{
-						name : "gn",
-						location : "growersnation"
-					},
-					{
-						name : "util",
-						location : "utils"
-					}
+					{ name: "dojo", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojo", main : "dojo.js.uncompressed.js"},
+					{ name : "dijit", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dijit" },
+					{ name: "dojox", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojox" },
+					{ name: "gn", location : "growersnation" },
+					{ name: "util", location : "utils" }
 				]
 			};
 		</script>
