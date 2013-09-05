@@ -2,19 +2,18 @@ define(["dojo/store/Memory",
  	 	"dojo/store/JsonRest",
  	 	"dojo/store/Cache",
  	 	"dojo/_base/declare",
- 	 	"dojo/Deferred"],
+ 	 	"dojo/Deferred",
+ 	 	"dojo/promise/Promise"],
 
 	function(Memory,
 			 JsonRest,
 			 Cache,
 			 declare,
-			 Deferred){
+			 Deferred,
+			 Promise){
 		
-		var service = new JsonRest({
-			// google maps places api uri for autocomplete location searches
-			target: "/maps/api/place/autocomplete/json?&sensor=true&key=AIzaSyAdxFxJZ5P0VdgGB3okJ9GoiQ5ebT2FFYM&input="
-		});
-		var model = new Memory();
+		var service = new JsonRest({ idProperty: "id", target: "/WebClient/test/resources/data/" });
+		var model = new Memory({ idProperty: "id" });
 		var cache = new Cache(service, model);
 			 	
 		return {
@@ -26,7 +25,7 @@ define(["dojo/store/Memory",
 				//        that is returned by the json rest store.get()
 				
 				var result = cache.get(id);
-				if(result.then){
+				if(result instanceof Promise){
 					return result;
 				} else {
 					// return a fake promise with the returned object
@@ -34,7 +33,7 @@ define(["dojo/store/Memory",
 					 setTimeout(function(){
 				      deferred.resolve(result);
 				    }, 100);
-					return deferred;
+					return deferred.promise;
 				}
 			}
 		}
