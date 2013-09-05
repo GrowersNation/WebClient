@@ -14,8 +14,7 @@ define(
 	 "dijit/_WidgetsInTemplateMixin",
 	 "dijit/_TemplatedMixin",
 	 "gn/responsive/location/topic/MyLocationTopic",
-	 "dojo/topic",
-	 "gn/produce/model/produceData"],
+	 "dojo/topic"],
 	
 	function(domConstruct, 
 			 request,
@@ -29,8 +28,7 @@ define(
 			 _WidgetsInTemplateMixin,
 			 _TemplatedMixin,
 			 MyLocationTopic,
-			 topic,
-			 produceData){
+			 topic){
 		
 		//var locInput = "<form>Location: <input id='location' type='text' name='location'><input type='submit' value='Submit'></form>";
 		//var autoComplete = "<div id='locsFound'></div>";
