@@ -22,24 +22,24 @@
 							"endDate": "2013-08-31"
 					}
 			},"crop": {
-					"name": "strawberries",
-					"image": "images/strawberries.jpg",
+					"name": "Peas",
+					"image": "images/peas.jpg",
 					"information":"Plant strawberries now for a crop next summer.",
 					"category": {
 							"name": "fruit",
-							"image": "images/fruit.jpg"
+							"image": "images/veg.jpg"
 					},
 					"type": {
 							"name": "berry",
-							"image": "images/berries.jpg"
+							"image": "images/lagumes.jpg"
 					},
 					"planting": {
 							"startDate": "2013-08-01",
 							"endDate": "2013-08-31"
 					}
 			},"crop": {
-					"name": "strawberries",
-					"image": "images/strawberries.jpg",
+					"name": "Plum",
+					"image": "images/plumes.jpg",
 					"information":"Plant strawberries now for a crop next summer.",
 					"category": {
 							"name": "fruit",
@@ -47,23 +47,23 @@
 					},
 					"type": {
 							"name": "berry",
-							"image": "images/berries.jpg"
+							"image": "images/pitted.jpg"
 					},
 					"planting": {
 							"startDate": "2013-08-01",
 							"endDate": "2013-08-31"
 					}
 			},"crop": {
-					"name": "strawberries",
-					"image": "images/strawberries.jpg",
+					"name": "Corn",
+					"image": "images/cereal.jpg",
 					"information":"Plant strawberries now for a crop next summer.",
 					"category": {
 							"name": "fruit",
-							"image": "images/fruit.jpg"
+							"image": "images/veg.jpg"
 					},
 					"type": {
 							"name": "berry",
-							"image": "images/berries.jpg"
+							"image": "images/cereal.jpg"
 					},
 					"planting": {
 							"startDate": "2013-08-01",
