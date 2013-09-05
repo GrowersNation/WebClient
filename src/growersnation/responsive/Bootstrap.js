@@ -1,5 +1,5 @@
 define(["gn/responsive/crop/GetCropForLocationCommand",
-		"gn/responsive/location/MyLocationTopic",
+		"gn/responsive/location/topic/MyLocationTopic",
 		"dojo/topic",
 		"dijit/Destroyable",
 		"dojo/_base/declare"],

@@ -12,7 +12,7 @@ define(["dojo/store/Memory",
 		
 		var service = new JsonRest({
 			// google maps places api uri for autocomplete location searches
-			target: "/maps/api/place/autocomplete/json?&sensor=true&key=AIzaSyAdxFxJZ5P0VdgGB3okJ9GoiQ5ebT2FFYM&input="
+			target: "/maps/api/place/autocomplete/json?&sensor=false&key=AIzaSyAdxFxJZ5P0VdgGB3okJ9GoiQ5ebT2FFYM&input="
 		});
 		var model = new Memory();
 		var cache = new Cache(service, model);

@@ -2,7 +2,8 @@ define([],
 	function(){
 		return {
 			execute: function(options){
-				alert(options);
+				console.log("Here we should make a request like", "something/produce?location=50,2");
+				
 			}
 		}
 	}	
