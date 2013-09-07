@@ -45,7 +45,7 @@ define(["gn/responsive/location/widget/MyLocation",
 			},
 			
 			handleNewLocation: function(attr, oldValue, newValue){
-				var id = "crops.json?location=" + newValue.lat + "," + newValue.lng;
+				var id = "categorys.json?location=" + newValue.lat + "," + newValue.lng;
         		produceData.get(id).then(
         			lang.hitch(this, function(data){
         				// inject crop data into widget for rendering

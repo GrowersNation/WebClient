@@ -34,19 +34,23 @@ define(["dojo/on",
 			
 			templateString: template,
 			
-			createCrops: function(cropData){
-				var crop = undefined;
-				for (var i = 0; i < cropData.length; i++){
-					crop = new Crop({
-						name: cropData[i].crop.name,
-						information: cropData[i].crop.information,
-						imgSrc: cropData[i].crop.image,
-						startDate: formatDate(cropData[i].crop.planting.startDate),
-						endDate: formatDate(cropData[i].crop.planting.endDate)
+			createCrops: function(categoryData){
+				var category = undefined;
+				for (var i = 0; i < categoryData.length; i++){
+					category = new Category({
+						name: categoryData[i].category.name,
+						imgSrc: categoryData[i].category.image
 					});
-					crop.placeAt(this.domNode);
-					crop.startup();
+					category.placeAt(this.domNode);
+					category.startup();
+					
+					// listen for category selection
+					on(category.image, "click", lang.hitch(this, this.loadCrop));
 				}
+			},
+			
+			loadCrop: function(){
+				
 			}
 			
 		});
