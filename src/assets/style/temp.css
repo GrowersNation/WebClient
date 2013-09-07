@@ -2,6 +2,7 @@ h1 {
 	font-size: 18pt;
 }
 
+/* just in here as temp calendar display styles */
 .gardenCalendar > .planting {
 	width; 40%;
 	height: 40px;
@@ -15,6 +16,7 @@ h1 {
 	background-color: blue;
 	margin: 0 40% 0 30%;
 }
+/* end of temp cal styles */
 
 .produce img {
 	cursor: pointer;
@@ -43,11 +45,3 @@ a:hover {
 a:active {
 	color: #0000FF;
 }  /* selected link */
-
-@media screen and (min-width: 40.5em) {
-	
-}
-
-@media screen and (min-width: 40.5em) {
-	
-}
