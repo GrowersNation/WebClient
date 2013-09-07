@@ -97,11 +97,19 @@ define(
 			
 			handleSubmit: function(event){
 				event.preventDefault();
+				
+				// have to have this check because of a bug in the code
+				// which is doing a double submit on 'submit'.
+				// needs fixing, started when Views were added.
+				if(this.get("currentLocation") !== undefined){
+					return false;
+				}
+				
+				// handle validity check and new location submit
 				if(this.locSearchForm.checkValidity()){
 		            MyLocationModel.get(this.selectedLocationReference).then(
 		            	lang.hitch(this, function(data){
 		            		this.set("currentLocation", data.result.geometry.location);
-		            		var l = this.get("currentLocation");
 		            	}),
 		            	function(error){
 		            		this.locsFoundOnMap.innerHTML = "<p>" + error + "</p>";

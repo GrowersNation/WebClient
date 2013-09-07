@@ -1,21 +1,27 @@
 define(["gn/responsive/location/widget/MyLocation",
 		"dojo/_base/declare",
 		"dojo/_base/lang",
+		"dojo/Stateful",
 		"dojo/domReady!"],
 	
 	function(MyLocation,
 			 declare,
-			 lang){
+			 lang,
+			 Stateful){
 		
-		return declare([],{
-			constructor: function(){
-				var myLocation = new MyLocation({});
-				myLocation.placeAt("myLocationNode");
-				myLocation.startup();
-				myLocation.watch("currentLocation", lang.hitch(this, this.handleNewLocation));
+		return declare([Stateful],{
+			
+			_myLocation: undefined,
+			
+			constructor: function(view){
+				this.set("_myLocation", new MyLocation());
+				this.get("_myLocation").placeAt(view.myLocationNode);
+				this.get("_myLocation").startup();
+				this.get("_myLocation").watch("currentLocation", lang.hitch(this, this.handleNewLocation));
 			},
 			
-			handleNewlocation: function(attr, oldValue, newValue){
+			handleNewLocation: function(attr, oldValue, newValue){
+				console.log(attr, oldValue, newValue);
 				var id = "crops.json?location=" + newValue.location.lat + "," + newValue.location.lng;
         		produceData.get(id).then(
         			lang.hitch(this, function(data){
