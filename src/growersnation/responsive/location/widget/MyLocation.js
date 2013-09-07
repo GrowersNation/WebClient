@@ -9,11 +9,10 @@ define(
 	 "dojo/_base/lang",
 	 "gn/responsive/location/model/MyLocationModel",
 	 "gn/responsive/location/model/AutoCompleteLocationModel",
-	 "dojo/text!./template/myLocationTemplate.html",
+	 "dojo/text!./template/myLocation.html",
 	 "dijit/_WidgetBase",
 	 "dijit/_WidgetsInTemplateMixin",
 	 "dijit/_TemplatedMixin",
-	 "gn/produce/model/produceData",
 	 "dojo/topic"],
 	
 	function(domConstruct, 
@@ -27,7 +26,6 @@ define(
 			 _WidgetBase,
 			 _WidgetsInTemplateMixin,
 			 _TemplatedMixin,
-			 produceData,
 			 topic){
 		
 		//var locInput = "<form>Location: <input id='location' type='text' name='location'><input type='submit' value='Submit'></form>";

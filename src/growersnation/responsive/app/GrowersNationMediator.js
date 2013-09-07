@@ -1,10 +1,12 @@
 define(["gn/responsive/location/widget/MyLocation",
+		"gn/responsive/produce/model/produceData",
 		"dojo/_base/declare",
 		"dojo/_base/lang",
 		"dojo/Stateful",
 		"dojo/domReady!"],
 	
 	function(MyLocation,
+			 produceData,
 			 declare,
 			 lang,
 			 Stateful){
@@ -22,7 +24,7 @@ define(["gn/responsive/location/widget/MyLocation",
 			
 			handleNewLocation: function(attr, oldValue, newValue){
 				console.log(attr, oldValue, newValue);
-				var id = "crops.json?location=" + newValue.location.lat + "," + newValue.location.lng;
+				var id = "crops.json?location=" + newValue.lat + "," + newValue.lng;
         		produceData.get(id).then(
         			lang.hitch(this, function(data){
         				// tell others that the crop data is ready
