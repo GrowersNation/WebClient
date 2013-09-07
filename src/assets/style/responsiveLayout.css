@@ -2,6 +2,20 @@ h1 {
 	font-size: 18pt;
 }
 
+.gardenCalendar > .planting {
+	width; 40%;
+	height: 40px;
+	background-color: green;
+	margin: 0 60% 0 20%;
+}
+
+.gardenCalendar > .harvesting {
+	width; 15%;
+	height: 40px;
+	background-color: blue;
+	margin: 0 40% 0 30%;
+}
+
 .produce img {
 	cursor: pointer;
 }
