@@ -1,5 +1,6 @@
 define(["gn/responsive/location/widget/MyLocation",
 		"gn/responsive/produce/model/produceData",
+		"gn/responsive/produce/widget/Produce",
 		"dojo/_base/declare",
 		"dojo/_base/lang",
 		"dojo/Stateful",
@@ -7,19 +8,25 @@ define(["gn/responsive/location/widget/MyLocation",
 	
 	function(MyLocation,
 			 produceData,
+			 Produce,
 			 declare,
 			 lang,
 			 Stateful){
 		
 		return declare([Stateful],{
 			
-			_myLocation: undefined,
+			_location: undefined,
+			_produce: undefined,
 			
 			constructor: function(view){
-				this.set("_myLocation", new MyLocation());
-				this.get("_myLocation").placeAt(view.myLocationNode);
-				this.get("_myLocation").startup();
-				this.get("_myLocation").watch("currentLocation", lang.hitch(this, this.handleNewLocation));
+				// instantiate location widget
+				this.set("_location", new MyLocation());
+				this.get("_location").placeAt(view.myLocationNode);
+				this.get("_location").startup();
+				this.get("_location").watch("currentLocation", lang.hitch(this, this.handleNewLocation));
+				
+				// instantiate produce widget
+				this.set("_produce", new Produce());
 			},
 			
 			handleNewLocation: function(attr, oldValue, newValue){
@@ -27,8 +34,8 @@ define(["gn/responsive/location/widget/MyLocation",
 				var id = "crops.json?location=" + newValue.lat + "," + newValue.lng;
         		produceData.get(id).then(
         			lang.hitch(this, function(data){
-        				// tell others that the crop data is ready
-        				console.log(data);
+        				// inject crop data into widget for rendering
+        				this.get("_produce").createCrops(data.results);        				
         			}),
         			lang.hitch(this, function(error){
         				console.log("Failed to get crop data:", error);
