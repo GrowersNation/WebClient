@@ -8,6 +8,7 @@ define(["dojo/on",
 		"dijit/_WidgetBase",
 		"dijit/_WidgetsInTemplateMixin",
 		"dijit/_TemplatedMixin",
+		"dijit/registry",
 		"gn/responsive/produce/widget/Category",
 		"gn/responsive/produce/widget/Crop",
 		"gn/responsive/produce/widget/Type"],
@@ -19,6 +20,7 @@ define(["dojo/on",
 			 _WidgetBase,
 			 _WidgetsInTemplateMixin,
 			 _TemplatedMixin,
+			 registry,
 			 Category,
 			 Crop,
 			 Type){
@@ -32,9 +34,13 @@ define(["dojo/on",
 		
 		return declare([_WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin], {
 			
+			category: undefined,
+			crop: undefined,
+			
 			templateString: template,
 			
-			createCrops: function(categoryData){
+			loadCategories: function(categoryData){
+				this.clearDomNode();
 				var category = undefined;
 				for (var i = 0; i < categoryData.length; i++){
 					category = new Category({
@@ -45,12 +51,41 @@ define(["dojo/on",
 					category.startup();
 					
 					// listen for category selection
-					on(category.image, "click", lang.hitch(this, this.loadCrop));
+					on(category.image, "click", lang.hitch([this, category], function(event){
+						var category = this[1];
+						this[0].set("category", this[1]);
+					}));
 				}
 			},
 			
-			loadCrop: function(){
-				
+			loadCrops: function(cropData){
+				this.clearDomNode();
+				var crop = undefined;
+				for (var i = 0; i < cropData.length; i++){
+					crop = new Crop({
+						name: cropData[i].crop.name,
+						information: cropData[i].crop.information,
+						imgSrc: cropData[i].crop.image,
+						category: this.get("category").name,
+						startDate: cropData[i].crop.planting.startDate,
+						endDate: cropData[i].crop.planting.endDate
+					});
+					crop.placeAt(this.domNode);
+					crop.startup();
+					
+					// listen for crop selection
+					on(crop.image, "click", lang.hitch([this, crop], function(event){
+						var crop = this[1];
+						this[0].set("crop", this[1]);
+					}));
+				}
+			},
+			
+			clearDomNode: function(){
+				var allWidgets = registry.findWidgets(this.domNode);
+				for (var i = 0; i < allWidgets.length; i++){
+					allWidgets[i].destroyRecursive();
+				}
 			}
 			
 		});

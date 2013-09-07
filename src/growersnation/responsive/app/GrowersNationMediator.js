@@ -42,6 +42,8 @@ define(["gn/responsive/location/widget/MyLocation",
 				
 				// instantiate produce widget
 				this._initWidget("_produce", Produce, this.get("_views").produceNode);
+				this.get("_produce").watch("category", lang.hitch(this, this.handleNewCategory));
+				this.get("_produce").watch("item", lang.hitch(this, this.handleNewItem));
 			},
 			
 			handleNewLocation: function(attr, oldValue, newValue){
@@ -50,12 +52,41 @@ define(["gn/responsive/location/widget/MyLocation",
         			lang.hitch(this, function(data){
         				// inject crop data into widget for rendering
         				this.get("_views").toggleViews("produceView");
-        				this.get("_produce").createCrops(data.results);        				
+        				this.get("_produce").loadCategories(data.results);        				
         			}),
         			lang.hitch(this, function(error){
         				console.log("Failed to get crop data:", error);
         			})
         		);
+			},
+			
+			handleNewCategory: function(attr, oldValue, newValue){
+				var location = this.get("_location").currentLocation;
+				var id = "crops.json?location=" + location.lat + "," + location.lng;
+        		produceData.get(id).then(
+        			lang.hitch(this, function(data){
+        				// inject crop data into widget for rendering
+        				this.get("_views").toggleViews("gardenView");
+        				this.get("_produce").loadPlantingData(data.results);        				
+        			}),
+        			lang.hitch(this, function(error){
+        				console.log("Failed to get crop data:", error);
+        			})
+        		);
+			},
+			
+			handleNewItem: function(attr, oldValue, newValue){
+				var location = this.get("_location").currentLocation;
+				var id = "planting.json?location=" + location.lat + "," + location.lng;
+        		produceData.get(id).then(
+        			lang.hitch(this, function(data){
+        				// inject crop data into widget for rendering
+        				this.get("_produce").loadCrops(data.results);        				
+        			}),
+        			lang.hitch(this, function(error){
+        				console.log("Failed to get crop data:", error);
+        			})
+        		); 
 			}
 		});
 		
