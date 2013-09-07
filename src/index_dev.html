@@ -61,7 +61,6 @@
 			 * any third party libs, the dojo parser, and any custom growers nation packages such as geolocationModule.
 			 */
 			require(["dojo/parser",
-					 "gn/responsive/Context",
 					 "dojox/mobile/deviceTheme",
 					 "gn/responsive/app/GrowersNationMediator",
 					 "dojox/mobile",
@@ -74,7 +73,7 @@
 				 * 
 				 * @param dojo parser
 				 */
-				function(parser, Context, deviceTheme, Mediator) {
+				function(parser, deviceTheme, Mediator) {
 					parser.parse();
 					
 					//is JSON supported natively?
@@ -83,7 +82,6 @@
 						require(["util/json2"]);
 					}
 					
-					new Context();
 					new Mediator();
 				}
 			);

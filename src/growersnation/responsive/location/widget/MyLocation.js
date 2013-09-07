@@ -13,7 +13,7 @@ define(
 	 "dijit/_WidgetBase",
 	 "dijit/_WidgetsInTemplateMixin",
 	 "dijit/_TemplatedMixin",
-	 "gn/responsive/location/topic/MyLocationTopic",
+	 "gn/produce/model/produceData",
 	 "dojo/topic"],
 	
 	function(domConstruct, 
@@ -27,7 +27,7 @@ define(
 			 _WidgetBase,
 			 _WidgetsInTemplateMixin,
 			 _TemplatedMixin,
-			 MyLocationTopic,
+			 produceData,
 			 topic){
 		
 		//var locInput = "<form>Location: <input id='location' type='text' name='location'><input type='submit' value='Submit'></form>";
@@ -37,6 +37,7 @@ define(
 			map: undefined,
 			templateString: template,
 			selectedLocationReference: undefined,
+			currentLocation: undefined,
 			
 			startup: function(){
 				on(this.location, "keyup", lang.hitch(this, this.autoCompleteLocResults));
@@ -99,8 +100,8 @@ define(
 				if(this.locSearchForm.checkValidity()){
 		            MyLocationModel.get(this.selectedLocationReference).then(
 		            	lang.hitch(this, function(data){
-		            		var locPosition = data.result.geometry.location;
-							topic.publish(MyLocationTopic.GET_CROPS_FOR_LOCATION(), {location: locPosition});
+		            		this.set("currentLocation", data.result.geometry.location);
+		            		var l = this.get("currentLocation");
 		            	}),
 		            	function(error){
 		            		this.locsFoundOnMap.innerHTML = "<p>" + error + "</p>";
