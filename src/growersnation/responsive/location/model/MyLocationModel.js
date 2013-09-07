@@ -2,13 +2,13 @@ define(["dojo/store/Memory",
  	 	"dojo/store/JsonRest",
  	 	"dojo/store/Cache",
  	 	"dojo/_base/declare",
- 	 	"dojo/Deferred"],
+ 	 	"dojo/when"],
 
 	function(Memory,
 			 JsonRest,
 			 Cache,
 			 declare,
-			 Deferred){
+			 when){
 		
 		var service = new JsonRest({
 			// google maps places api uri for location details, inc a api key and a unique reference parameter
@@ -25,20 +25,10 @@ define(["dojo/store/Memory",
 				//        then return it with a promise, otherwise, return the promise
 				//        that is returned by the json rest store.get()
 				
-				var result = cache.get(id);
-				if(result.then){
-					return result;
-				} else {
-					// return a fake promise with the returned object
-					var deferred = new Deferred();
-					 setTimeout(function(){
-				      deferred.resolve(result);
-				    }, 100);
-					return deferred;
-				}
+				return when(cache.get(id));
 			}
-		}
+		};
 		
 	}
 	
-)
+);

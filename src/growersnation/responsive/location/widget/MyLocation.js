@@ -9,11 +9,10 @@ define(
 	 "dojo/_base/lang",
 	 "gn/responsive/location/model/MyLocationModel",
 	 "gn/responsive/location/model/AutoCompleteLocationModel",
-	 "dojo/text!./template/myLocationTemplate.html",
+	 "dojo/text!./template/myLocation.html",
 	 "dijit/_WidgetBase",
 	 "dijit/_WidgetsInTemplateMixin",
 	 "dijit/_TemplatedMixin",
-	 "gn/responsive/location/topic/MyLocationTopic",
 	 "dojo/topic"],
 	
 	function(domConstruct, 
@@ -27,7 +26,6 @@ define(
 			 _WidgetBase,
 			 _WidgetsInTemplateMixin,
 			 _TemplatedMixin,
-			 MyLocationTopic,
 			 topic){
 		
 		//var locInput = "<form>Location: <input id='location' type='text' name='location'><input type='submit' value='Submit'></form>";
@@ -37,6 +35,7 @@ define(
 			map: undefined,
 			templateString: template,
 			selectedLocationReference: undefined,
+			currentLocation: undefined,
 			
 			startup: function(){
 				on(this.location, "keyup", lang.hitch(this, this.autoCompleteLocResults));
@@ -64,7 +63,7 @@ define(
 										var locRef = event.currentTarget.dataset.locRefernce;
 										var name = event.currentTarget.dataset.locName;
 										this.location.value = name;
-										this.handleSelectedLocation(locRef)
+										this.handleSelectedLocation(locRef);
 										this.selectedLocationReference = locRef;
 									}));
 									domConstruct.place(node, "locsFound");
@@ -96,20 +95,28 @@ define(
 			
 			handleSubmit: function(event){
 				event.preventDefault();
+				
+				// have to have this check because of a bug in the code
+				// which is doing a double submit on 'submit'.
+				// needs fixing, started when Views were added.
+				if(this.get("currentLocation") !== undefined){
+					return false;
+				}
+				
+				// handle validity check and new location submit
 				if(this.locSearchForm.checkValidity()){
 		            MyLocationModel.get(this.selectedLocationReference).then(
 		            	lang.hitch(this, function(data){
-		            		var locPosition = data.result.geometry.location;
-							topic.publish(MyLocationTopic.GET_CROPS_FOR_LOCATION(), {location: locPosition});
+		            		this.set("currentLocation", data.result.geometry.location);
 		            	}),
 		            	function(error){
 		            		this.locsFoundOnMap.innerHTML = "<p>" + error + "</p>";
 		            	}
-		            )
+		            );
 		        } else {
 			        return false;
 		        }
 			}
 		});
 	}
-)
+);

@@ -2,6 +2,14 @@ h1 {
 	font-size: 18pt;
 }
 
+.produce img {
+	cursor: pointer;
+}
+
+.fullWidth {
+	width: 100%;
+}
+
 .login {
 	position: absolute;
 	right: 7px;

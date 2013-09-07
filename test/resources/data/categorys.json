@@ -1,0 +1,34 @@
+{
+	"description": {
+		"what": "Crops which are valid for times='this month', using compost='False'",
+		"where": "the URI used to get this data"
+	},
+	"results": [
+		{	
+			"category": {
+				"name": "Fruit",
+				"image": "/WebClient/src/assets/images/produce/fruit.jpg"
+			}
+		},{
+		
+			"category": {
+				"name": "Vegetable",
+				"image": "/WebClient/src/assets/images/produce/veg.jpg"
+			}
+		},{
+			"category": {
+				"name": "Cereal",
+				"image": "/WebClient/src/assets/images/produce/cereal.jpg"
+			}
+		},{
+			"category": {
+				"name": "Nuts",
+				"image": "/WebClient/src/assets/images/produce/nuts.jpg"
+			}
+		}
+	],
+	"status": {
+		"code": "200",
+		"message": "OK"
+	}
+}

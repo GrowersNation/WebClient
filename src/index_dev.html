@@ -61,9 +61,8 @@
 			 * any third party libs, the dojo parser, and any custom growers nation packages such as geolocationModule.
 			 */
 			require(["dojo/parser",
-					 "gn/responsive/Context",
 					 "dojox/mobile/deviceTheme",
-					 "gn/responsive/location/widget/MyLocation",
+					 "gn/responsive/app/GrowersNationMediator",
 					 "dojox/mobile",
 					 "dojox/mobile/compat",
 					 "dojo/domReady!"],
@@ -74,29 +73,28 @@
 				 * 
 				 * @param dojo parser
 				 */
-				function(parser, Context, deviceTheme, MyLocation) {
-					parser.parse();
+				function(parser, deviceTheme, Mediator) {
 					
 					//is JSON supported natively?
 					if (typeof JSON !== "object"){
+						// no well then add supprt
 						require(["util/json2"]);
 					}
 					
-					new Context();
-					new MyLocation({}, "main").startup();
+					new Mediator("views");
+					
+					parser.parse();				
 				}
 			);
 		</script>
 		
 		<div>
 			<header>
-				<h1>Growers' Nation - planting the seeds locally for a more sustainable future</h1>
+				<img class="fullWidth" alt="Grower's Nation logo" src="/WebClient/src/assets/images/logo/growers-nation2.jpg"/>
 				<a class="login" href="http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/openid">login</a>
 			</header>
 
-			<div id="main">
-				main content
-			</div>
+			<div id="views"></div>
 			
 			<footer>
 				<p id="footer">
