@@ -18,8 +18,10 @@
 					"image": "/WebClient/src/assets/images/produce/berries.jpg"
 				},
 				"planting": {
-					"startDate": "2013-08-01T00:00:000Z",
-					"endDate": "2013-08-31T00:00:000Z"
+					"startDate": "2013-05-01T00:00:000Z",
+					"endDate": "2013-06-31T00:00:000Z",
+					"harvestStartDate": "2013-07-01T00:00:000Z",
+					"harvestEndDate": "2013-09-01T00:00:000Z"
 				}
 			}
 		}, {
@@ -37,7 +39,9 @@
 				},
 				"planting": {
 					"startDate": "2013-08-01T00:00:000Z",
-					"endDate": "2013-08-31T00:00:000Z"
+					"endDate": "2013-08-31T00:00:000Z",
+					"harvestStartDate": "2013-07-01T00:00:000Z",
+					"harvestEndDate": "2013-09-01T00:00:000Z"
 				}
 			}
 		}, {
@@ -55,7 +59,9 @@
 				},
 				"planting": {
 					"startDate": "2013-08-01T00:00:000Z",
-					"endDate": "2013-08-31T00:00:000Z"
+					"endDate": "2013-08-31T00:00:000Z",
+					"harvestStartDate": "2013-07-01T00:00:000Z",
+					"harvestEndDate": "2013-09-01T00:00:000Z"
 				}
 			}
 		}, {
@@ -73,7 +79,9 @@
 				},
 				"planting": {
 					"startDate": "2013-08-01T00:00:000Z",
-					"endDate": "2013-08-31T00:00:000Z"
+					"endDate": "2013-08-31T00:00:000Z",
+					"harvestStartDate": "2013-07-01T00:00:000Z",
+					"harvestEndDate": "2013-09-01T00:00:000Z"
 				}
 			}
 		}

@@ -68,7 +68,9 @@ define(["dojo/on",
 						imgSrc: cropData[i].crop.image,
 						category: this.get("category").name,
 						startDate: cropData[i].crop.planting.startDate,
-						endDate: cropData[i].crop.planting.endDate
+						endDate: cropData[i].crop.planting.endDate,
+						harvestStartDate: cropData[i].crop.planting.harvestStartDate,
+						harvestStartDate: cropData[i].crop.planting.harvestEndDate
 					});
 					crop.placeAt(this.domNode);
 					crop.startup();

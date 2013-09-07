@@ -19,7 +19,20 @@ define(["dojo/on",
 		
 		return declare([_WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin], {
 			
-			templateString: template
+			templateString: template,
+			
+			crop: undefined,
+			imgSrc: "",
+			
+			planting: {
+				startDate: undefined,
+				endDate: undefined
+			},
+			
+			harvesting: {
+				startDate: undefined,
+				endDate: undefined
+			}
 			
 		});
 	}

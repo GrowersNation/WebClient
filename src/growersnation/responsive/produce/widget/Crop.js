@@ -25,6 +25,8 @@ define(["dojo/on",
 			startDate: "date",
 			endDate: "date",
 			category: "cat",
+			harvestStartDate: "date",
+			harvestEndDate: "date",
 			
 			templateString: template
 			
