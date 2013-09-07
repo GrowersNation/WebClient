@@ -83,7 +83,9 @@
 					}
 					
 					new Context();
-					new MyLocation({}, "main").startup();
+					var myLocation = new MyLocation({});
+					myLocation.placeAt("myLocationNode");
+					myLocation.startup();
 				}
 			);
 		</script>
@@ -94,8 +96,18 @@
 				<a class="login" href="http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/openid">login</a>
 			</header>
 
-			<div id="main">
-				main content
+			<div>
+				<div id="locationView" data-dojo-type="dojox/mobile/View" data-djo-props="selected:true">
+					<h1 data-dojo-type="dojox/mobile/Heading">Your growing location</h1>
+					<div id="myLocationNode"></div>
+				</div>
+				<div id="produceView" data-dojo-type="dojox/mobile/View">
+					
+				</div>
+				<div id="gardenView" data-dojo-type="dojox/mobile/View"></div>
+				<div id="soilView" data-dojo-type="dojox/mobile/View"></div>
+				<div id="climatologyView" data-dojo-type="dojox/mobile/View"></div>
+				<div id="socialView" data-dojo-type="dojox/mobile/View"></div>
 			</div>
 			
 			<footer>
