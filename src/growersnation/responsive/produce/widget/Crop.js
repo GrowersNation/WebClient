@@ -19,6 +19,12 @@ define(["dojo/on",
 		
 		return declare([_WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin], {
 			
+			name: "name",
+			imgSrc: "",
+			information: "info",
+			startDate: "date",
+			endDate: "date",
+			
 			templateString: template
 			
 		});

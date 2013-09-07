@@ -7,15 +7,15 @@
 		{
 			"crop": {
 				"name": "strawberries",
-				"image": "images/strawberries.jpg",
+				"image": "/WebClient/src/assets/images/produce/strawberries.jpg",
 				"information": "Plant strawberries now for a crop next summer.",
 				"category": {
 					"name": "fruit",
-					"image": "images/fruit.jpg"
+					"image": "/WebClient/src/assets/images/produce/fruit.jpg"
 				},
 				"type": {
 					"name": "berry",
-					"image": "images/berries.jpg"
+					"image": "/WebClient/src/assets/images/produce/berries.jpg"
 				},
 				"planting": {
 					"startDate": "2013-08-01",
@@ -25,15 +25,15 @@
 		}, {
 			"crop": {
 				"name": "Peas",
-				"image": "images/peas.jpg",
+				"image": "/WebClient/src/assets/images/produce/peas.jpg",
 				"information": "Plant strawberries now for a crop next summer.",
 				"category": {
 					"name": "fruit",
-					"image": "images/veg.jpg"
+					"image": "/WebClient/src/assets/images/produce/veg.jpg"
 				},
 				"type": {
 					"name": "berry",
-					"image": "images/lagumes.jpg"
+					"image": "/WebClient/src/assets/images/produce/lagumes.jpg"
 				},
 				"planting": {
 					"startDate": "2013-08-01",
@@ -43,15 +43,15 @@
 		}, {
 			"crop": {
 				"name": "Plum",
-				"image": "images/plumes.jpg",
+				"image": "/WebClient/src/assets/images/produce/plumes.jpg",
 				"information": "Plant strawberries now for a crop next summer.",
 				"category": {
 					"name": "fruit",
-					"image": "images/fruit.jpg"
+					"image": "/WebClient/src/assets/images/produce/fruit.jpg"
 				},
 				"type": {
 					"name": "berry",
-					"image": "images/pitted.jpg"
+					"image": "/WebClient/src/assets/images/produce/pitted.jpg"
 				},
 				"planting": {
 					"startDate": "2013-08-01",
@@ -61,15 +61,15 @@
 		}, {
 			"crop": {
 				"name": "Corn",
-				"image": "images/cereal.jpg",
+				"image": "/WebClient/src/assets/images/produce/cereal.jpg",
 				"information": "Plant strawberries now for a crop next summer.",
 				"category": {
 					"name": "fruit",
-					"image": "images/veg.jpg"
+					"image": "/WebClient/src/assets/images/produce/veg.jpg"
 				},
 				"type": {
 					"name": "berry",
-					"image": "images/cereal.jpg"
+					"image": "/WebClient/src/assets/images/produce/cereal.jpg"
 				},
 				"planting": {
 					"startDate": "2013-08-01",

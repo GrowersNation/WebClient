@@ -25,11 +25,17 @@ define(["dojo/on",
 			 registry){
 		
 		return declare([_WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin], {
+			
 			templateString: template,
 			
 			toggleViews: function(view){
-				var allViews = registry.findWidgets(this.domNode);
 				
+				// description:
+				//		This will get all views under the domNode
+				//		and hide them if they dont match the view
+				//		attach point injected.
+				
+				var allViews = registry.findWidgets(this.domNode);
 				for (var i = 0; i < allViews.length; i++){
 					if (view === allViews[i].dojoAttachPoint){
 						allViews[i].show();

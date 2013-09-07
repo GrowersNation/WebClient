@@ -26,15 +26,19 @@ define(["dojo/on",
 		return declare([_WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin], {
 			
 			templateString: template,
-			crops: [],
 			
 			createCrops: function(cropData){
 				var crop = undefined;
 				for (var i = 0; i < cropData.length; i++){
-					crop = new Crop().placeAt(this.domNode);
+					crop = new Crop({
+						name: cropData[i].crop.name,
+						information: cropData[i].crop.information,
+						imgSrc: cropData[i].crop.image,
+						startDate: cropData[i].crop.planting.startDate,
+						endDate: cropData[i].crop.planting.endDate
+					});
+					crop.placeAt(this.domNode);
 					crop.startup();
-					crop.hide();
-					this.get("crops").push(crop);
 				}
 			}
 			
