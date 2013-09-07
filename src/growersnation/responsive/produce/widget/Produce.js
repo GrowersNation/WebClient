@@ -23,6 +23,13 @@ define(["dojo/on",
 			 Crop,
 			 Type){
 		
+		function formatDate(isoString){
+			var date = new Date(isoString);
+			var dateArray = isoString.split("T");
+			dateArray = dateArray[0].split("-");
+			return dateArray[2] + "/" + dateArray[1] + "/" + dateArray[0];
+		}
+		
 		return declare([_WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin], {
 			
 			templateString: template,
@@ -34,8 +41,8 @@ define(["dojo/on",
 						name: cropData[i].crop.name,
 						information: cropData[i].crop.information,
 						imgSrc: cropData[i].crop.image,
-						startDate: cropData[i].crop.planting.startDate,
-						endDate: cropData[i].crop.planting.endDate
+						startDate: formatDate(cropData[i].crop.planting.startDate),
+						endDate: formatDate(cropData[i].crop.planting.endDate)
 					});
 					crop.placeAt(this.domNode);
 					crop.startup();
