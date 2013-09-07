@@ -5,31 +5,36 @@ define(["dojo/on",
 		"dojo/_base/declare",
 		"dojo/_base/lang",
 		"dojo/text!./template/produce.html",
-		"dojo/text!./template/category.html",
-		"dojo/text!./template/type.html",
-		"dojo/text!./template/crop.html",
 		"dijit/_WidgetBase",
 		"dijit/_WidgetsInTemplateMixin",
-		"dijit/_TemplatedMixin"],
+		"dijit/_TemplatedMixin",
+		"gn/responsive/produce/widget/Category",
+		"gn/responsive/produce/widget/Crop",
+		"gn/responsive/produce/widget/Type"],
 	
 	function(on,
 			 declare,
 			 lang,
-			 produceTemplate,
-			 categoryTemplate,
-			 typeTemplate,
-			 cropTemplate,
+			 template,
 			 _WidgetBase,
 			 _WidgetsInTemplateMixin,
-			 _TemplatedMixin){
+			 _TemplatedMixin,
+			 Category,
+			 Crop,
+			 Type){
 		
 		return declare([_WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin], {
 			
-			templateString: produceTemplate,
+			templateString: template,
+			crops: [],
 			
 			createCrops: function(cropData){
+				var crop = undefined;
 				for (var i = 0; i < cropData.length; i++){
-					console.log(cropData[i]);
+					crop = new Crop().placeAt(this.domNode);
+					crop.startup();
+					crop.hide();
+					this.get("crops").push(crop);
 				}
 			}
 			

@@ -74,7 +74,6 @@
 				 * @param dojo parser
 				 */
 				function(parser, deviceTheme, Mediator) {
-					parser.parse();
 					
 					//is JSON supported natively?
 					if (typeof JSON !== "object"){
@@ -82,7 +81,9 @@
 						require(["util/json2"]);
 					}
 					
-					new Mediator(this);					
+					new Mediator("views");
+					
+					parser.parse();				
 				}
 			);
 		</script>
@@ -93,32 +94,7 @@
 				<a class="login" href="http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/openid">login</a>
 			</header>
 
-			<div>
-				<div id="locationView" data-dojo-type="dojox/mobile/View" data-djo-props="selected:true">
-					<h1 data-dojo-type="dojox/mobile/Heading">Your location</h1>
-					<div id="myLocationNode"></div>
-				</div>
-				<div id="produceView" data-dojo-type="dojox/mobile/View">
-					<h1 data-dojo-type="dojox/mobile/Heading">Your produce</h1>
-					<div id="produceNode"></div>
-				</div>
-				<div id="gardenView" data-dojo-type="dojox/mobile/View">
-					<h1 data-dojo-type="dojox/mobile/Heading">Your garden</h1>
-					<div id="gardenNode"></div>
-				</div>
-				<div id="soilView" data-dojo-type="dojox/mobile/View">
-					<h1 data-dojo-type="dojox/mobile/Heading">Your soil</h1>
-					<div id="soilNode"></div>
-				</div>
-				<div id="climatologyView" data-dojo-type="dojox/mobile/View">
-					<h1 data-dojo-type="dojox/mobile/Heading">Your climate</h1>
-					<div id="climatologyNode"></div>
-				</div>
-				<div id="socialView" data-dojo-type="dojox/mobile/View">
-					<h1 data-dojo-type="dojox/mobile/Heading">Grower's Nation Community</h1>
-					<div id="communityNode"></div>
-				</div>
-			</div>
+			<div id="views"></div>
 			
 			<footer>
 				<p id="footer">
