@@ -64,7 +64,7 @@ define(
 										var locRef = event.currentTarget.dataset.locRefernce;
 										var name = event.currentTarget.dataset.locName;
 										this.location.value = name;
-										this.handleSelectedLocation(locRef)
+										this.handleSelectedLocation(locRef);
 										this.selectedLocationReference = locRef;
 									}));
 									domConstruct.place(node, "locsFound");
@@ -105,11 +105,11 @@ define(
 		            	function(error){
 		            		this.locsFoundOnMap.innerHTML = "<p>" + error + "</p>";
 		            	}
-		            )
+		            );
 		        } else {
 			        return false;
 		        }
 			}
 		});
 	}
-)
+);

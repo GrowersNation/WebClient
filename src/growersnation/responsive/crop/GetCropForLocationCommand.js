@@ -11,8 +11,8 @@ define(["gn/produce/model/produceData"],
         			function(error){
         				console.log("Failed to get crop data:", error);
         			}
-        		)
+        		);
 			}
-		}
+		};
 	}	
-)
+);

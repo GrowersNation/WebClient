@@ -63,7 +63,7 @@
 			require(["dojo/parser",
 					 "gn/responsive/Context",
 					 "dojox/mobile/deviceTheme",
-					 "gn/responsive/location/widget/MyLocation",
+					 "gn/responsive/app/GrowersNationMediator",
 					 "dojox/mobile",
 					 "dojox/mobile/compat",
 					 "dojo/domReady!"],
@@ -74,18 +74,17 @@
 				 * 
 				 * @param dojo parser
 				 */
-				function(parser, Context, deviceTheme, MyLocation) {
+				function(parser, Context, deviceTheme, Mediator) {
 					parser.parse();
 					
 					//is JSON supported natively?
 					if (typeof JSON !== "object"){
+						// no well then add supprt
 						require(["util/json2"]);
 					}
 					
 					new Context();
-					var myLocation = new MyLocation({});
-					myLocation.placeAt("myLocationNode");
-					myLocation.startup();
+					new Mediator();
 				}
 			);
 		</script>
