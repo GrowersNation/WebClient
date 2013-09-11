@@ -1,7 +1,7 @@
 define(["gn/responsive/location/widget/MyLocation",
 		"gn/responsive/produce/model/produceData",
 		"gn/responsive/produce/widget/Produce",
-		"gn/responsive/garden/widget/Garden",
+		"gn/responsive/garden/widget/MyGarden",
 		"gn/responsive/app/widget/Views",
 		"dojo/_base/declare",
 		"dojo/_base/lang",
@@ -12,7 +12,7 @@ define(["gn/responsive/location/widget/MyLocation",
 	function(MyLocation,
 			 produceData,
 			 Produce,
-			 Garden,
+			 MyGarden,
 			 Views,
 			 declare,
 			 lang,
@@ -49,7 +49,7 @@ define(["gn/responsive/location/widget/MyLocation",
 				this.get("_produce").watch("crop", lang.hitch(this, this.handleNewItem));
 				
 				// initialise garden widget
-				this._initWidget("_garden", Garden, this.get("_views").gardenNode);
+				this._initWidget("_garden", MyGarden, this.get("_views").gardenNode);
 			},
 			
 			handleNewLocation: function(attr, oldValue, newValue){
