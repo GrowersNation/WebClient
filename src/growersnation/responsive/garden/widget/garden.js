@@ -25,6 +25,7 @@ define(["dojo/on",
 			imgSrc: "",
 			
 			planting: {
+				
 				startDate: undefined,
 				endDate: undefined
 			},
