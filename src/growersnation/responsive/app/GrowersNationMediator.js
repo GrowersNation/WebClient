@@ -1,4 +1,4 @@
-define(["gn/responsive/location/widget/MyLocation",
+define(["gn/responsive/location/widget/Location",
 		"gn/responsive/produce/model/produceData",
 		"gn/responsive/produce/widget/Produce",
 		"gn/responsive/garden/widget/MyGarden",
@@ -9,7 +9,7 @@ define(["gn/responsive/location/widget/MyLocation",
 		"dijit/registry",
 		"dojo/domReady!"],
 	
-	function(MyLocation,
+	function(Location,
 			 produceData,
 			 Produce,
 			 MyGarden,
@@ -40,7 +40,7 @@ define(["gn/responsive/location/widget/MyLocation",
 				this._initWidget("_views", Views, viewId);
 				
 				// instantiate location widget
-				this._initWidget("_location", MyLocation, this.get("_views").locationNode);
+				this._initWidget("_location", Location, this.get("_views").locationNode);
 				this.get("_location").watch("currentLocation", lang.hitch(this, this.handleNewLocation));
 				
 				// instantiate produce widget
