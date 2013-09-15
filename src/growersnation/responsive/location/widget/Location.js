@@ -36,50 +36,22 @@ define(
 			templateString: template,
 			selectedLocationReference: undefined,
 			currentLocation: undefined,
+			_autocomplete: undefined,
 			
 			postCreate: function(){
-				var input = this.location;
-				var autocomplete = new google.maps.places.Autocomplete(input, {});
-				
-				google.maps.event.addListener(autocomplete, 'place_changed', function() {
-					var place = autocomplete.getPlace();
-					if (place.geometry && typeof place.geometry !== 'undefined') {
-						console.log("location data: ", place);
-					} else {
-						console.log("error");
-					}
-				});
-
-				//on(this.location, "keyup", lang.hitch(this, this.autoCompleteLocResults));
-				//on(this.locSearchForm, "submit", lang.hitch(this, this.handleSubmit));
-			},
-			
-			autoCompleteLocResults: function(args){
-				
-			},
-			
-			handleSelectedLocation: function(locationReference){
-				/*MyLocationModel.get(locationReference).then(
-					lang.hitch(this, function(data){
-						var locGeometry = data.result.geometry;
-						var locPosition = locGeometry.location;
-						var locViewport = locGeometry.viewport;
-						var img_url="http://maps.googleapis.com/maps/api/staticmap?center="+locPosition.lat+","+locPosition.lng+"&zoom=14&size=400x300&sensor=false";
-						this.locsFoundOnMap.innerHTML = "<img src='"+img_url+"'>";
-					}),
-					function(error){
-						this.locsFoundOnMap.innerHTML = "<p>" + error + "</p>";
-					}
-				);*/
+				this._autocomplete = new google.maps.places.Autocomplete(this.location, {});
+				on(this.locSearchForm, "submit", lang.hitch(this, this.handleSubmit));
 			},
 			
 			handleSubmit: function(event){
 				event.preventDefault();
+				var place = this._autocomplete.getPlace();
 				
 				// handle validity check and new location submit
-				if(this.locSearchForm.checkValidity()){
+				if(place !== undefined && place !== null && this.locSearchForm.checkValidity() && place.geometry){
 		            console.log(event);
 		        } else {
+		        	console.log(place);
 			        return false;
 		        }
 			}
