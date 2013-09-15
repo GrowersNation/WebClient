@@ -13,8 +13,7 @@ define(
 	 "dijit/_WidgetBase",
 	 "dijit/_WidgetsInTemplateMixin",
 	 "dijit/_TemplatedMixin",
-	 "dojo/topic",
-	 "googleMaps"],
+	 "dojo/topic"],
 	
 	function(domConstruct, 
 			 request,
@@ -36,13 +35,11 @@ define(
 			selectedLocationReference: undefined,
 			currentLocation: undefined,
 			
-			startup: function(){
-				this._googleSearch();
-				//on(this.locationSearch, "keyup", lang.hitch(this, this.autoCompleteLocResults));
-				//on(this.locSearchForm, "submit", lang.hitch(this, this.handleSubmit));
+			postCreate: function(){
+				this._initPlaces();
 			},
-			
-			_googleSearch: function() {
+		
+			_initPlaces: function() {
 		
 				try {
 					var locOptions = {};
@@ -53,12 +50,12 @@ define(
 						if (place.geometry && typeof place.geometry !== 'undefined') {
 							console.log("location data: ", place);
 						} else {
-							alert("error");
+							console.log("error");
 						}
 					});
 		
 				} catch(err) {
-					alert("error", err);
+					console.log("error", err);
 				}
 			}
 		});
