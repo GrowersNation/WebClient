@@ -67,7 +67,7 @@ define(["gn/responsive/location/widget/Location",
 			},
 			
 			handleNewCategory: function(attr, oldValue, newValue){
-				var location = this.get("_location").currentLocation;
+				var location = this._location.get("selectedLocation");
 				var id = "crops.json?location=" + location.lat + "," + location.lng;
         		produceData.get(id).then(
         			lang.hitch(this, function(data){
@@ -81,7 +81,7 @@ define(["gn/responsive/location/widget/Location",
 			},
 			
 			handleNewItem: function(attr, oldValue, newValue){
-				var location = this.get("_location").currentLocation;
+				var location = this._location.get("selectedLocation");
 				var crop = this.get("_produce").crop;
 				
 				this.get("_garden").crop = crop;
