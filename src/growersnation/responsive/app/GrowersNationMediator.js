@@ -1,4 +1,4 @@
-define(["gn/responsive/location/widget/MyLocation",
+define(["gn/responsive/location/widget/Location",
 		"gn/responsive/produce/model/produceData",
 		"gn/responsive/produce/widget/Produce",
 		"gn/responsive/garden/widget/MyGarden",
@@ -9,7 +9,7 @@ define(["gn/responsive/location/widget/MyLocation",
 		"dijit/registry",
 		"dojo/domReady!"],
 	
-	function(MyLocation,
+	function(Location,
 			 produceData,
 			 Produce,
 			 MyGarden,
@@ -40,8 +40,8 @@ define(["gn/responsive/location/widget/MyLocation",
 				this._initWidget("_views", Views, viewId);
 				
 				// instantiate location widget
-				this._initWidget("_location", MyLocation, this.get("_views").locationNode);
-				this.get("_location").watch("currentLocation", lang.hitch(this, this.handleNewLocation));
+				this._initWidget("_location", Location, this.get("_views").locationNode);
+				this.get("_location").watch("selectedLocation", lang.hitch(this, this.handleNewLocation));
 				
 				// instantiate produce widget
 				this._initWidget("_produce", Produce, this.get("_views").produceNode);
@@ -67,7 +67,7 @@ define(["gn/responsive/location/widget/MyLocation",
 			},
 			
 			handleNewCategory: function(attr, oldValue, newValue){
-				var location = this.get("_location").currentLocation;
+				var location = this._location.get("selectedLocation");
 				var id = "crops.json?location=" + location.lat + "," + location.lng;
         		produceData.get(id).then(
         			lang.hitch(this, function(data){
@@ -81,7 +81,7 @@ define(["gn/responsive/location/widget/MyLocation",
 			},
 			
 			handleNewItem: function(attr, oldValue, newValue){
-				var location = this.get("_location").currentLocation;
+				var location = this._location.get("selectedLocation");
 				var crop = this.get("_produce").crop;
 				
 				this.get("_garden").crop = crop;
