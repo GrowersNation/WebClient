@@ -8,7 +8,6 @@ define(
 	 "dojo/_base/declare",
 	 "dojo/_base/lang",
 	 "gn/responsive/location/model/MyLocationModel",
-	 "gn/responsive/location/model/AutoCompleteLocationModel",
 	 "dojo/text!./template/myLocation.html",
 	 "dijit/_WidgetBase",
 	 "dijit/_WidgetsInTemplateMixin",
@@ -21,7 +20,6 @@ define(
 			 declare,
 			 lang,
 			 MyLocationModel,
-			 AutoCompleteLocationModel,
 			 template,
 			 _WidgetBase,
 			 _WidgetsInTemplateMixin,
@@ -34,8 +32,7 @@ define(
 		return declare([_WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin], {
 			map: undefined,
 			templateString: template,
-			selectedLocationReference: undefined,
-			currentLocation: undefined,
+			selectedLocation: undefined,
 			_autocomplete: undefined,
 			
 			postCreate: function(){
@@ -49,7 +46,11 @@ define(
 				
 				// handle validity check and new location submit
 				if(place !== undefined && place !== null && this.locSearchForm.checkValidity() && place.geometry){
-		            console.log(event);
+		            MyLocationModel.get(place.reference).then(lang.hitch(this, function(data){
+		            	this.set("selectedLocation", data.result.geometry.location);
+		            }), function(error){
+		            	console.log("Problem getting location details", error);
+		            });
 		        } else {
 		        	console.log(place);
 			        return false;

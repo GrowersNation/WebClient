@@ -41,7 +41,7 @@ define(["gn/responsive/location/widget/Location",
 				
 				// instantiate location widget
 				this._initWidget("_location", Location, this.get("_views").locationNode);
-				this.get("_location").watch("currentLocation", lang.hitch(this, this.handleNewLocation));
+				this.get("_location").watch("selectedLocation", lang.hitch(this, this.handleNewLocation));
 				
 				// instantiate produce widget
 				this._initWidget("_produce", Produce, this.get("_views").produceNode);
