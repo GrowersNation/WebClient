@@ -1,30 +1,31 @@
 <div>
-	<div data-dojo-attach-point="locationView" data-dojo-type="dojox/mobile/View">
-		<h1 data-dojo-type="dojox/mobile/Heading">Your location</h1>
+	<div id="location" data-dojo-attach-point="locationView" data-dojo-type="dojox/mobile/View">
+		<h1 data-dojo-attach-point="locHeader" data-dojo-type="dojox/mobile/Heading">My Location</h1>
 		<div data-dojo-attach-point="locationNode"></div>
 	</div>
-	<div data-dojo-attach-point="categoryView" data-dojo-type="dojox/mobile/View">
-		<h1 data-dojo-type="dojox/mobile/Heading" back="location">Your category</h1>
-		<div data-dojo-attach-point="categoryNode"></div>
-	</div>
-	<div data-dojo-attach-point="produceView" data-dojo-type="dojox/mobile/View">
-		<h1 data-dojo-type="dojox/mobile/Heading" back="location">Your produce</h1>
+	<div id="produce" data-dojo-attach-point="produceView" data-dojo-type="dojox/mobile/View">
+		<h1 data-dojo-attach-point="prodHeader" data-dojo-type="dojox/mobile/Heading"
+			data-dojo-props='back:"Location", moveTo:"location"'>My Produce</h1>
 		<div data-dojo-attach-point="produceNode"></div>
 	</div>
-	<div data-dojo-attach-point="gardenView" data-dojo-type="dojox/mobile/View">
-		<h1 data-dojo-type="dojox/mobile/Heading" back="location">Your garden</h1>
+	<div id="garden" data-dojo-attach-point="gardenView" data-dojo-type="dojox/mobile/View">
+		<h1 data-dojo-attach-point="gardHeader" data-dojo-type="dojox/mobile/Heading"
+			data-dojo-props='back:"Produce", moveTo:"produce"'>My Garden</h1>
 		<div data-dojo-attach-point="gardenNode"></div>
 	</div>
-	<div data-dojo-attach-point="soilView" data-dojo-type="dojox/mobile/View">
-		<h1 data-dojo-type="dojox/mobile/Heading" back="location">Your soil</h1>
+	<div id="soil" data-dojo-attach-point="soilView" data-dojo-type="dojox/mobile/View">
+		<h1 data-dojo-attach-point="soilHeader" data-dojo-type="dojox/mobile/Heading"
+			data-dojo-props='back:"Garden", moveTo:"garden"'>My Soil</h1>
 		<div data-dojo-attach-point="soilNode"></div>
 	</div>
-	<div data-dojo-attach-point="climatologyView" data-dojo-type="dojox/mobile/View">
-		<h1 data-dojo-type="dojox/mobile/Heading" back="location">Your climate</h1>
+	<div id="climate" data-dojo-attach-point="climatologyView" data-dojo-type="dojox/mobile/View">
+		<h1 data-dojo-attach-point="climHeader" data-dojo-type="dojox/mobile/Heading"
+			data-dojo-props='back:"Soil", moveTo:"soil"'>Climate</h1>
 		<div data-dojo-attach-point="climatologyNode"></div>
 	</div>
-	<div data-dojo-attach-point="socialView" data-dojo-type="dojox/mobile/View">
-		<h1 data-dojo-type="dojox/mobile/Heading" back="location">Grower's Nation Community</h1>
+	<div id="social" data-dojo-attach-point="socialView" data-dojo-type="dojox/mobile/View">
+		<h1 data-dojo-attach-point="socHeader" data-dojo-type="dojox/mobile/Heading"
+			data-dojo-props='back:"Climate", moveTo:"climate"'>Grower's Nation Community</h1>
 		<div data-dojo-attach-point="communityNode"></div>
 	</div>
 </div>

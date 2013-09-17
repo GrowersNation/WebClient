@@ -26,30 +26,28 @@ define(["gn/responsive/location/widget/Location",
 			_produce: undefined,
 			_garden: undefined,
 			
-			_initWidget: function(attr, Widget, node, options){
-				if (options === null || options === undefined){
-					options = {};
-				}
-				this.set(attr, new Widget(options));
-				this.get(attr).placeAt(node);
-				this.get(attr).startup();
-			},
-			
 			constructor: function(viewId){
 				// instantiate the main views and startup
-				this._initWidget("_views", Views, viewId);
+				this._views = new Views({}, viewId);
+				this._views.startup();
 				
 				// instantiate location widget
-				this._initWidget("_location", Location, this.get("_views").locationNode);
-				this.get("_location").watch("selectedLocation", lang.hitch(this, this.handleNewLocation));
+				this._location = new Location();
+				this._location.placeAt(this._views.get("locationNode"));
+				this._location.startup();
+				this._location.watch("selectedLocation", lang.hitch(this, this.handleNewLocation));
 				
 				// instantiate produce widget
-				this._initWidget("_produce", Produce, this.get("_views").produceNode);
-				this.get("_produce").watch("category", lang.hitch(this, this.handleNewCategory));
-				this.get("_produce").watch("crop", lang.hitch(this, this.handleNewItem));
+				this._produce = new Produce();
+				this._produce.placeAt(this._views.get("produceNode"));
+				this._produce.startup();
+				this._produce.watch("category", lang.hitch(this, this.handleNewCategory));
+				this._produce.watch("crop", lang.hitch(this, this.handleNewItem));
 				
 				// initialise garden widget
-				this._initWidget("_garden", MyGarden, this.get("_views").gardenNode);
+				this._garden = new MyGarden();
+				this._garden.placeAt(this._views.get("gardenNode"));
+				this._garden.startup();
 			},
 			
 			handleNewLocation: function(attr, oldValue, newValue){
@@ -57,8 +55,8 @@ define(["gn/responsive/location/widget/Location",
         		produceData.get(id).then(
         			lang.hitch(this, function(data){
         				// inject crop data into widget for rendering
-        				this.get("_views").toggleViews("produceView");
-        				this.get("_produce").loadCategories(data.results);        				
+        				this._views.toggleViews("produceView");
+        				this._produce.loadCategories(data.results);        				
         			}),
         			lang.hitch(this, function(error){
         				console.log("Failed to get crop data:", error);
@@ -72,7 +70,7 @@ define(["gn/responsive/location/widget/Location",
         		produceData.get(id).then(
         			lang.hitch(this, function(data){
         				// inject crop data into widget for rendering
-        				this.get("_produce").loadCrops(data.results);        				
+        				this._produce.loadCrops(data.results);        				
         			}),
         			lang.hitch(this, function(error){
         				console.log("Failed to get crop data:", error);
@@ -82,16 +80,16 @@ define(["gn/responsive/location/widget/Location",
 			
 			handleNewItem: function(attr, oldValue, newValue){
 				var location = this._location.get("selectedLocation");
-				var crop = this.get("_produce").crop;
+				var crop = this._produce.get("crop");
 				
-				this.get("_garden").crop = crop;
-				this.get("_garden").image.src = crop.imgSrc;
-				this.get("_garden").planting.startDate = crop.endDate;
-				this.get("_garden").planting.endDate =  crop.startDate;
-				this.get("_garden").harvesting.startDate = crop.harvestStartDate;
-				this.get("_garden").harvesting.endDate = crop.harvestEndDate;
+				this._garden.set("crop", crop);
+				this._garden.get("image").src = crop.imgSrc;
+				this._garden.get("planting").startDate = crop.endDate;
+				this._garden.get("planting").endDate =  crop.startDate;
+				this._garden.get("harvesting").startDate = crop.harvestStartDate;
+				this._garden.get("harvesting").endDate = crop.harvestEndDate;
 				
-				this.get("_views").toggleViews("gardenView");
+				this._views.toggleViews("gardenView");
 			}
 		});
 		
