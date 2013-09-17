@@ -75,15 +75,17 @@
 				 * @param dojo parser
 				 */
 				function(parser, deviceTheme, Mediator) {
-
+					
+					parser.parse();
+					
 					//is JSON supported natively?
 					if (typeof JSON !== "object"){
 						// no well then add supprt
 						require(["util/json2"]);
 					}
 					
-					new Mediator("views");
-					parser.parse();
+					new Mediator("main");
+					
 				}
 			);
 		</script>
@@ -94,7 +96,7 @@
 				<a class="login" href="http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/openid">login</a>
 			</header>
 
-			<div id="views"></div>
+			<div id="main"></div>
 			
 			<footer>
 				<p id="footer">

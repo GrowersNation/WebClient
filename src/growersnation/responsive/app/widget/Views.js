@@ -6,11 +6,11 @@ define(["dojo/on",
 		"dojo/_base/lang",
 		"dojo/text!./template/views.html",
 		"dijit/_WidgetBase",
-		"dijit/_WidgetsInTemplateMixin",
 		"dijit/_TemplatedMixin",
+		"dijit/_WidgetsInTemplateMixin",
+		"dijit/registry",
 		"dojox/mobile/View",
 		"dojox/mobile/Heading",
-		"dijit/registry",
 		"dojo/domReady!"],
 	
 	function(on,
@@ -18,13 +18,11 @@ define(["dojo/on",
 			 lang,
 			 template,
 			 _WidgetBase,
-			 _WidgetsInTemplateMixin,
 			 _TemplatedMixin,
-			 View,
-			 Heading,
+			 _WidgetsInTemplateMixin,
 			 registry){
 		
-		return declare([_WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin], {
+		return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
 			
 			templateString: template,
 			
