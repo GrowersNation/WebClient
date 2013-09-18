@@ -7,12 +7,37 @@
 
 ## Getting started
 
-Start a web server using the `src` directory as your base with this handy python command
+Begin by installing apache (or another webserver that supports a cross domain proxy):
 
-```
-python -m SimpleHTTPServer 8080
-```
-then navigate to `localhost:8080` to see the site. Any changes you make will be instantly reflected upon a refresh.
+    sudo apt-get install apache2
+
+Now add a virtual host for your Growers' Nation site. Under Ubuntu this can be achieved by creating a new site configuration file. Start by copying the default configuration:
+
+    sudo cp /etc/apache2/sites-available/default /etc/apache2/sites-available/growersnation
+
+and change the ```DocumentRoot``` to the directory containing your WebClient git clone. Now add the following to the bottom of ```/etc/apache2/sites-available/growersnation``` to enable some requests to be forwarded to the google maps api webserver:
+
+    <IfModule mod_proxy.c>
+    ProxyRequests Off
+    <Proxy *>
+    Order deny,allow
+    Allow from all
+    </Proxy>
+    SSLProxyEngine on
+    ProxyPass /maps https://maps.googleapis.com/maps
+    ProxyPassReverse /maps https://maps.googleapis.com/maps
+    </IfModule>
+
+Enable the ```ssl```, ```proxy```, ```proxy_connect``` and ```proxy_http``` apache modules:
+
+    sudo a2enmod ssl proxy proxy_connect proxy_http
+
+Finally, enable your site and reload your apache config using:
+
+    sudo a2ensite growersnation
+    sudo service apache2 reload
+
+and browse to http://127.0.1.1/WebClient/src/index_dev.html.
 
 ## Making changes
 
