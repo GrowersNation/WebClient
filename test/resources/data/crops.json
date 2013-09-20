@@ -67,7 +67,7 @@
 		}, {
 			"crop": {
 				"name": "Apples",
-				"image": "/WebClient/src/assets/images/produce/items/Apples.jpg",
+				"image": "/WebClient/src/assets/images/produce/items/apples.jpg",
 				"information": "Plant strawberries now for a crop next summer.",
 				"category": {
 					"name": "fruit",
