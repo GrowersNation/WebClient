@@ -7,7 +7,7 @@ define(
 	 "dojo/on",
 	 "dojo/_base/declare",
 	 "dojo/_base/lang",
-	 "gn/responsive/location/model/MyLocationModel",
+	 "gn/location/model/MyLocationModel",
 	 "dojo/text!./template/myLocation.html",
 	 "dijit/_WidgetBase",
 	 "dijit/_WidgetsInTemplateMixin",
