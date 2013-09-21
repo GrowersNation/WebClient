@@ -36,8 +36,8 @@ define(["dojo/store/Memory",
 					return deferred.promise;
 				}
 			}
-		}
+		};
 		
 	}
 	
-)
+);
