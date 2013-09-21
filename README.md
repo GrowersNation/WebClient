@@ -1,5 +1,9 @@
 # WebClient - The Growers' Nation Web Client
 
+### [http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com](Resource, APIs and other info)  
+### [http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/index.html](Production version)  
+### [http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/WebClient/src/index.html](Development version)  
+
 ## Technologies
 
 * HTML5 + JavaScript
@@ -37,7 +41,7 @@ Finally, enable your site and reload your apache config using:
     sudo a2ensite growersnation
     sudo service apache2 reload
 
-and browse to http://127.0.1.1/WebClient/src/index_dev.html.
+and browse to http://{localhost or your pc name/ip}/WebClient/src/index_dev.html.
 
 ## Making changes
 
