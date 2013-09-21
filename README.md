@@ -41,7 +41,7 @@ Finally, enable your site and reload your apache config using:
     sudo a2ensite growersnation
     sudo service apache2 reload
 
-and browse to http://{localhost or your pc name/ip}/WebClient/src/index_dev.html.
+and browse to http://{localhost or your pc name/ip}/WebClient/src/
 
 ## Making changes
 
