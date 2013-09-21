@@ -1,19 +1,22 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta name="description" content="Growers' Nation - planting the seeds locally for a more sustainable future" />
 		<meta name="author" content="Jeremy Brooks" />
-		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>Growers' Nation</title>
-
-		<!-- standard dojo theme -->
-		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dijit/themes/claro/claro.css" media="screen"/>
-
+		<title>Growers Nation</title>
+		
 		<!-- growers nation styles start here-->
-		<link rel="stylesheet" href="assets/style/layout.css" media="screen"/>
-
+		<link rel="stylesheet" href="assets/style/temp.css" media="screen"/>
+		<link rel="stylesheet" href="assets/style/location.css" media="screen"/>
+		
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAkGg9qaoOU-kmk2sq832m0PKH4POj1Xm0&libraries=places&sensor=false"></script>
 		<script>
 			/* Instead of using the inline dojo-config attribute
 			 * create this variable so we can configure dojo here.
@@ -30,126 +33,76 @@
 				//NOTE: do not import any other scripts through a script tag except for dojo.js,
 				//if you do, you'll experience random errors and a double download of each js file required.
 				packages : [
-				//dojo specific packages
-				{
-					name : "dojo",
-					location : "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo",
-					main : "dojo.js.uncompressed.js"
-				}, //dojo.js.uncompressed.js for dev, use dojo.js for release
-				{
-					name : "dijit",
-					location : "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dijit"
-				}, {
-					name : "dojox",
-					location : "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojox",
-					main : "dojo.js"
-				},
-
-				//other third party libs here, remember to 'require' any of these to use them
-				{
-					name : "jquery",
-					location : "http://code.jquery.com",
-					main : "jquery-1.8.3"
-				}, {
-					name : "modernizr",
-					location : "http://modernizr.com/downloads",
-					main : "modernizr.js"
-				}, //uncompressed version of modernizr for dev
-
-				//growers nation packages start here
-				{
-					name : "gn",
-					location : "growersnation"
-				},
-				{
-					name : "utils",
-					location : "utils"
-				}]
+					//dojo specific packages
+					{ name: "dojo", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojo", main : "dojo.js.uncompressed.js"},
+					{ name : "dijit", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dijit" },
+					{ name: "dojox", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojox" },
+					{ name: "gn", location : "growersnation" },
+					{ name: "util", location : "utils" }
+				]
 			};
 		</script>
 
 	</head>
 
-	<!-- this basic layout uses the dojo layout widgets and a dojo standard them for styling applied via the body class -->
-	<body class="claro">
-
-		<div id="appLayout" class="demoLayout" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design: 'headline'">
-
-			<div id="header-panel" class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'top'">
-				<h3>Planting the seeds locally for a more sustainable future</h3>
-				<a class="login" href="http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/openid">login</a>
-			</div>
-
-			<div class="centerPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center', tabPosition: 'bottom'">
-
-				<div id="growersTabs" data-dojo-type="dijit/layout/TabContainer" nested="true">
-
-					<div data-dojo-type="dijit/layout/ContentPane" id="mapView" title="Map">
-						<div id="locationContent" data-dojo-type="dijit/layout/ContentPane"></div>
-						<div id="locationCheck" data-dojo-type="dijit/layout/ContentPane">
-							Have we got your location correct?
-							<button id="yes"></button>
-							<button id="no"></button>
-						</div>
-					</div>
-					<div data-dojo-type="dijit/layout/ContentPane" id="soilData" title="Soil data">
-						<form>
-						Soil ph: <input type="text" name="soilPh"><br>
-						Soil type: <input type="text" name="soilType"><br>
-						Soil moisture: <input type="text" name="soilMoisture"><br>
-						<input type="submit" value="Submit">
-						</form>
-					</div>
-					<div data-dojo-type="dijit/layout/ContentPane" id="growingInfoView" title="Growing Info"></div>
-					<div data-dojo-type="dijit/layout/ContentPane" id="wikiView" title="Wiki Tips"></div>
-					<div data-dojo-type="dijit/layout/ContentPane" id="myPlotView" title="My Plot"></div>
-					<div data-dojo-type="dijit/layout/ContentPane" id="communityView" title="Community"></div>
-				</div>
-
-			</div>
-
-			<div id="rightPanel" class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'right', splitter: true">
-
-				<div id="reset-app" style="display:none;">
-					Start over again
-				</div>
-				<div id="category-content"></div> 
-
-			</div>
-
-		</div>
-
-		<!-- dojo local import not in header becasue the dojo config should happen before this import -->
-		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo/dojo.js"></script>
+	<body>
+		
+		<!-- dojo inport -->
+		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojo/dojo.js.uncompressed.js"></script>
+		
 		<script>
+		
+			/*function validateLoc(args){
+				alert(args);
+				return false;
+			}*/
+		
 			/**
 			 * Required packages for any daclarative markup that uses a dojo widget type such as BorderContainer,
 			 * any third party libs, the dojo parser, and any custom growers nation packages such as geolocationModule.
 			 */
-			require(["gn/geolocation/geolocationModule",
-					 "gn/categories/categoriesModule",
-					 "gn/categories/subcategories/subcategoriesModule",
-					 "gn/categories/subcategoryItems/subcategoryItemModule",
-					 "gn/growinginfo/growingInfoModule",
-					 "dojo/parser",
-					 "dijit/layout/BorderContainer",
-					 "dijit/layout/TabContainer",
-					 "dijit/layout/ContentPane",
+			require(["dojo/parser",
+					 "dojox/mobile/deviceTheme",
+					 "gn/responsive/app/GrowersNationMediator",
+					 "dojox/mobile",
+					 "dojox/mobile/compat",
 					 "dojo/domReady!"],
 
-			/**
-			 * Parses the document using the dojo parser which will set up all dojo widgets.
-			 * Instantiates any other modules or widgets needed.
-			 *
-			 * @param geolocationModule
-			 * @param dojo parser
-			 */
-			function(geolocate, categories, subcategories, subcategoryItems, growingInfo, parser) {
-				parser.parse();
-				geolocate.startup();
-			});
+				/**
+				 * Parses the document using the dojo parser which will set up all dojo widgets.
+				 * Instantiates any other modules or widgets needed.
+				 * 
+				 * @param dojo parser
+				 */
+				function(parser, deviceTheme, Mediator) {
+					
+					parser.parse();
+					
+					//is JSON supported natively?
+					if (typeof JSON !== "object"){
+						// no well then add supprt
+						require(["util/json2"]);
+					}
+					
+					new Mediator("main");
+					
+				}
+			);
 		</script>
+		
+		<div>
+			<header>
+				<img class="fullWidth" alt="Grower's Nation logo" src="/WebClient/src/assets/images/logo/growers-nation2.jpg"/>
+				<a class="login" href="http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/openid">login</a>
+			</header>
 
+			<div id="main"></div>
+			
+			<footer>
+				<p id="footer">
+					
+				</p>
+			</footer>
+		</div>
 	</body>
-
 </html>
