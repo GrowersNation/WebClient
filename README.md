@@ -1,8 +1,8 @@
 # WebClient - The Growers' Nation Web Client
 
-### [http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com](Resource, APIs and other info)  
-### [http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/index.html](Production version)  
-### [http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/WebClient/src/index.html](Development version)  
+#### [Resource, APIs and other info](http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com)  
+#### [Production version](http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/index.html)  
+#### [Development version](http://ec2-46-137-56-2.eu-west-1.compute.amazonaws.com/WebClient/src/index.html)  
 
 ## Technologies
 
